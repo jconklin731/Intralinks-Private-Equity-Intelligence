@@ -640,15 +640,17 @@
 
 <!-- NAV TABS -->
 <div class="nav-tabs">
-  <div class="nav-tab active">&#128200; Market Pulse</div>
-  <div class="nav-tab">&#127970; PE Intelligence</div>
-  <div class="nav-tab">&#128203; HF Intelligence</div>
-  <div class="nav-tab">&#9889; Additional</div>
-  <div class="nav-tab">&#128338; Watchlist</div>
+  <div class="nav-tab active" data-section="market">&#128200; Market Pulse</div>
+  <div class="nav-tab" data-section="pe">&#127970; PE Intelligence</div>
+  <div class="nav-tab" data-section="hf">&#128203; HF Intelligence</div>
+  <div class="nav-tab" data-section="additional">&#9889; Additional</div>
+  <div class="nav-tab" data-section="watchlist">&#128338; Watchlist</div>
+  <div class="nav-tab" data-section="archive">&#128450; Archive</div>
 </div>
 
 <div class="body-wrap">
 
+<div id="section-market">
 <!-- ================================ SECTION 1: MARKET PULSE ================================ -->
 <div class="section-header">
   <div class="section-icon">&#128200;</div>
@@ -746,6 +748,9 @@
 </div>
 <p class="data-note" style="margin-bottom:8px;">Src: Robinhood / Google Finance / Yahoo Finance (May 13 intraday). 52-wk highs sourced from MacroTrends. All major alt managers significantly off Sep 2025 peaks driven by private credit retail redemption pressure, BDC write-downs, and AI software portfolio concerns. BX 52-wk range: $101.73 &ndash; $190.09. <span style="color:var(--amber);">&#9888; AE Note: Stocks off highs = management fee pressure = urgency to tighten fund operations. Direct opening for Intralinks fund reporting conversations.</span></p>
 
+</div>
+
+<div id="section-pe">
 <!-- ================================ SECTION 2: PE INTELLIGENCE ================================ -->
 <div class="section-header">
   <div class="section-icon">&#127970;</div>
@@ -1303,6 +1308,9 @@ Jack Conklin | Intralinks</div>
   </div>
 </div>
 
+</div>
+
+<div id="section-hf">
 <!-- ================================ SECTION 3: HEDGE FUND INTELLIGENCE ================================ -->
 <div class="section-header">
   <div class="section-icon">&#128203;</div>
@@ -1476,6 +1484,9 @@ Jack Conklin | Intralinks</div>
   </div>
 </div>
 
+</div>
+
+<div id="section-additional">
 <!-- ================================ SECTION 4: ADDITIONAL INTELLIGENCE ================================ -->
 <div class="section-header">
   <div class="section-icon">&#9889;</div>
@@ -1546,6 +1557,9 @@ Jack Conklin | Intralinks</div>
   </div>
 </div>
 
+</div>
+
+<div id="section-watchlist">
 <!-- ================================ RE-ENGAGEMENT WATCHLIST ================================ -->
 <div class="section-header">
   <div class="section-icon">&#128336;</div>
@@ -1611,7 +1625,86 @@ Jack Conklin | Intralinks</div>
   <div class="footer-credit">&#9889; Created by Jack Conklin &bull; Intralinks Sales Intelligence &bull; Powered by AI Research Engine</div>
 </div>
 
+</div>
+
+<div id="section-archive" style="display:none">
+  <div class="section-header">
+    <div class="section-icon">&#128450;</div>
+    <div class="section-title">Past Intelligence Briefs</div>
+    <div class="section-count">Click any card to open in a new tab</div>
+  </div>
+  <p style="color:var(--muted);font-size:13px;margin:0 0 18px">Each brief is a complete snapshot saved from a past send.</p>
+  <div id="archive-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+    <div style="color:var(--muted);font-size:13px;padding:8px 0">Loading&#x2026;</div>
+  </div>
+</div>
+
 </div><!-- end body-wrap -->
 
+
+<script>
+// TAB SWITCHING
+(function() {
+  var tabs = document.querySelectorAll('.nav-tab[data-section]');
+  var sections = {
+    market:     document.getElementById('section-market'),
+    pe:         document.getElementById('section-pe'),
+    hf:         document.getElementById('section-hf'),
+    additional: document.getElementById('section-additional'),
+    watchlist:  document.getElementById('section-watchlist'),
+    archive:    document.getElementById('section-archive')
+  };
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var target = tab.dataset.section;
+      Object.keys(sections).forEach(function(key) {
+        if (sections[key]) sections[key].style.display = (key === target) ? '' : 'none';
+      });
+      if (target === 'archive') loadArchive();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+})();
+
+// ARCHIVE FETCH
+var archiveLoaded = false;
+function loadArchive() {
+  if (archiveLoaded) return;
+  archiveLoaded = true;
+  var grid = document.getElementById('archive-list');
+  if (!grid) return;
+  fetch('https://api.github.com/repos/jconklin731/Intralinks-Private-Equity-Intelligence/contents/archive')
+    .then(function(r) { return r.json(); })
+    .then(function(files) {
+      if (!Array.isArray(files)) throw new Error('no files');
+      var sorted = files.filter(function(f) { return f.name.endsWith('.html'); })
+                        .sort(function(a,b) { return b.name.localeCompare(a.name); });
+      if (!sorted.length) {
+        grid.innerHTML = '<div style="color:var(--muted);padding:20px 0">No archived briefs yet.</div>';
+        return;
+      }
+      grid.innerHTML = '';
+      sorted.forEach(function(f) {
+        var date = f.name.replace('.html','');
+        var a = document.createElement('a');
+        a.href = 'https://jconklin731.github.io/Intralinks-Private-Equity-Intelligence/archive/' + f.name;
+        a.target = '_blank';
+        a.style.cssText = 'display:block;background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:20px;text-decoration:none;transition:border-color .15s';
+        a.onmouseover = function() { a.style.borderColor = 'var(--gold)'; };
+        a.onmouseout  = function() { a.style.borderColor = 'var(--card-border)'; };
+        a.innerHTML = '<div style="color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Intelligence Brief</div>' +
+                      '<div style="color:var(--white);font-size:17px;font-weight:700">' + date + '</div>' +
+                      '<div style="color:var(--muted);font-size:12px;margin-top:10px">View &#x2192;</div>';
+        grid.appendChild(a);
+      });
+    })
+    .catch(function() {
+      var g = document.getElementById('archive-list');
+      if (g) g.innerHTML = '<div style="color:var(--muted);padding:20px 0">Archive unavailable.</div>';
+    });
+}
+</script>
 </body>
 </html>
