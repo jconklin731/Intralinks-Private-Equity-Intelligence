@@ -123,6 +123,11 @@
     border-bottom-color: var(--gold);
   }
 
+  /* SECTION VISIBILITY — only market shown on load; JS controls the rest */
+  #section-pe, #section-hf, #section-additional, #section-watchlist, #section-archive {
+    display: none;
+  }
+
   /* MAIN BODY */
   .body-wrap {
     max-width: 1100px;
@@ -1627,7 +1632,7 @@ Jack Conklin | Intralinks</div>
 
 </div>
 
-<div id="section-archive" style="display:none">
+<div id="section-archive">
   <div class="section-header">
     <div class="section-icon">&#128450;</div>
     <div class="section-title">Past Intelligence Briefs</div>
