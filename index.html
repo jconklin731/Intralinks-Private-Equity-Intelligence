@@ -17,7 +17,7 @@
   --th:48px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--navy);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.65;padding-top:calc(var(--th) + 6px)}
+body{background:var(--navy);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.65;padding-top:calc(var(--th) + 40px + 6px)}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(200,168,75,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 90% 80%,rgba(23,176,160,.05) 0%,transparent 50%);pointer-events:none;z-index:0}
 
 /* TICKER */
@@ -177,6 +177,13 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   .fhbtn{flex-wrap:wrap}.brow{order:3;width:100%}
   .hdr{flex-direction:column}.hr{text-align:left}
 }
+
+/* NAV TAB BAR */
+#nav-bar{position:fixed;top:var(--th);left:0;right:0;height:40px;background:var(--nl);border-bottom:1px solid var(--bdr);display:flex;align-items:stretch;overflow-x:auto;z-index:999;scrollbar-width:none}
+#nav-bar::-webkit-scrollbar{display:none}
+.nt{flex-shrink:0;padding:0 16px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);cursor:pointer;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap}
+.nt:hover{color:var(--t1)}
+.nt.active{color:var(--gold);border-bottom-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -186,6 +193,17 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
   <div class="tlabel">📊 MAY 13 CLOSE</div>
   <div class="twrap"><div class="ttrack" id="tt"></div></div>
   <div class="tflag">⚠ CPI 3.8% · PPI +6% YoY · Rate hike risk rising</div>
+</div>
+
+<!-- NAV TAB BAR -->
+<div id="nav-bar">
+  <div class="nt active" data-target="sp-market">&#128200; Market Pulse</div>
+  <div class="nt" data-target="sp-pe">&#127970; PE Intel</div>
+  <div class="nt" data-target="sp-hf">&#128200; HF Intel</div>
+  <div class="nt" data-target="sp-add">&#127760; Additional</div>
+  <div class="nt" data-target="sp-watch">&#128203; Watchlist</div>
+  <div class="nt" data-target="sp-macro">&#127758; Macro</div>
+  <div class="nt" data-target="sp-archive">&#128450; Archive</div>
 </div>
 
 <div class="page">
@@ -206,7 +224,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 </header>
 
 <!-- ══ S1: MARKET PULSE ══ -->
-<div class="sp">
+<div class="sp" id="sp-market">
   <button class="stoggle open" onclick="tS(this)">
     <div class="sico p">📊</div>
     <div class="stxt"><span>01</span> &nbsp; Market Pulse</div>
@@ -242,7 +260,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 </div>
 
 <!-- ══ S2: PE INTELLIGENCE ══ -->
-<div class="sp">
+<div class="sp" id="sp-pe">
   <button class="stoggle open" onclick="tS(this)">
     <div class="sico e">🏢</div>
     <div class="stxt"><span>02</span> &nbsp; Private Equity Firm Intelligence</div>
@@ -488,7 +506,7 @@ Intralinks</div>
 </div>
 
 <!-- ══ S3: HEDGE FUNDS ══ -->
-<div class="sp">
+<div class="sp" id="sp-hf">
   <button class="stoggle open" onclick="tS(this)">
     <div class="sico h">📈</div>
     <div class="stxt"><span>03</span> &nbsp; Hedge Fund Firm Intelligence</div>
@@ -608,7 +626,7 @@ Intralinks</div>
 </div>
 
 <!-- ══ S4: ADDITIONAL INTELLIGENCE ══ -->
-<div class="sp">
+<div class="sp" id="sp-add">
   <button class="stoggle open" onclick="tS(this)">
     <div class="sico a">🌐</div>
     <div class="stxt"><span>04</span> &nbsp; Additional Intelligence — Private Credit / Multi-Strategy</div>
@@ -705,7 +723,7 @@ Intralinks</div>
 </div>
 
 <!-- ══ RE-ENGAGEMENT WATCHLIST ══ -->
-<div class="sp">
+<div class="sp" id="sp-watch">
   <button class="stoggle" onclick="tS(this)">
     <div class="sico w">📋</div>
     <div class="stxt"><span>RE-ENGAGEMENT</span> &nbsp; Watchlist — Tier 1 Dormant</div>
@@ -731,7 +749,7 @@ Intralinks</div>
 </div>
 
 <!-- ══ MACRO ══ -->
-<div class="sp">
+<div class="sp" id="sp-macro">
   <button class="stoggle" onclick="tS(this)">
     <div class="sico m">🌍</div>
     <div class="stxt"><span>MACRO</span> &nbsp; What the Market Means for Your Calls Today</div>
@@ -750,7 +768,7 @@ Intralinks</div>
 
 
 <!-- ══ ARCHIVE ══ -->
-<div class="sp">
+<div class="sp" id="sp-archive">
   <button class="stoggle" onclick="tS(this);loadArchive()">
     <div class="sico" style="background:rgba(200,168,75,.12)">&#128450;</div>
     <div class="stxt"><span>ARCHIVE</span> &nbsp; Past Intelligence Briefs</div>
@@ -850,6 +868,45 @@ function loadArchive() {
       if (g) g.innerHTML = '<div style="color:var(--t3);font-size:13px">Archive unavailable.</div>';
     });
 }
+
+// NAV TAB BAR
+(function(){
+  var tabs = document.querySelectorAll('.nt');
+  var offset = document.getElementById('nav-bar').offsetHeight + 48 + 8;
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var id = tab.dataset.target;
+      var el = document.getElementById(id);
+      if (!el) return;
+      // expand section if collapsed
+      var toggle = el.querySelector('.stoggle');
+      var body = el.querySelector('.sbody');
+      if (toggle && body && !body.classList.contains('open')) {
+        toggle.classList.add('open');
+        body.classList.add('open');
+        if (id === 'sp-archive') loadArchive();
+      }
+      // scroll
+      var top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({top: top, behavior: 'smooth'});
+      // highlight active tab
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+    });
+  });
+  // highlight tab on scroll
+  window.addEventListener('scroll', function(){
+    var best = null, bestDist = Infinity;
+    tabs.forEach(function(tab){
+      var el = document.getElementById(tab.dataset.target);
+      if (!el) return;
+      var dist = Math.abs(el.getBoundingClientRect().top - offset);
+      if (dist < bestDist){ bestDist = dist; best = tab; }
+    });
+    if (best){ tabs.forEach(function(t){ t.classList.remove('active'); }); best.classList.add('active'); }
+  }, {passive:true});
+})();
+
 </script>
 </body>
 </html>
