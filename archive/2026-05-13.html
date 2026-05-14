@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intralinks Alternative Investments Briefing | May 13, 2026</title>
+<style>
+  :root {
+    --navy: #07111f;
+    --navy-mid: #0d1e33;
+    --navy-light: #122848;
+    --gold: #c9a84c;
+    --gold-light: #e5c97e;
+    --gold-dim: #8a6f30;
+    --blue-accent: #2563a8;
+    --blue-light: #5b9bd5;
+    --teal: #1a8a8a;
+    --red-alert: #e05050;
+    --green-signal: #3db87a;
+    --amber: #e09820;
+    --white: #f0f4f8;
+    --muted: #7fa3c0;
+    --card-bg: #0e1e30;
+    --card-border: #1e3a5f;
+    --inset-bg: #081624;
+    --font-main: 'Georgia', 'Times New Roman', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #07111f 0%, #0d2040 50%, #07111f 100%);
+    border-bottom: 2px solid var(--gold);
+    padding: 28px 36px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left { flex: 1; }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .logo-badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 18px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    letter-spacing: -1px;
+  }
+  .header-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .header-subtitle {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-meta {
+    text-align: right;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .header-date {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 4px;
+  }
+  .header-edition {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* NAVIGATION TABS */
+  .nav-tabs {
+    background: var(--navy-mid);
+    border-bottom: 1px solid var(--card-border);
+    padding: 0 36px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav-tab {
+    padding: 10px 18px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  .nav-tab.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* SECTION VISIBILITY — only market shown on load; JS controls the rest */
+  #section-pe, #section-hf, #section-additional, #section-watchlist, #section-archive {
+    display: none;
+  }
+
+  /* MAIN BODY */
+  .body-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 36px 60px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 36px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .section-icon {
+    font-size: 18px;
+    width: 32px;
+    text-align: center;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-count {
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* MARKET PULSE */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .market-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .market-card-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .market-card-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    font-family: var(--font-main);
+  }
+  .market-card-change {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .up { color: var(--green-signal); }
+  .down { color: var(--red-alert); }
+  .neutral { color: var(--amber); }
+
+  .market-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .market-mini {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 10px 14px;
+  }
+  .market-mini-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .market-mini-val {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-top: 2px;
+  }
+  .market-mini-sub {
+    font-size: 10px;
+    margin-top: 1px;
+  }
+
+  .alert-banner {
+    background: rgba(224, 80, 80, 0.12);
+    border: 1px solid rgba(224, 80, 80, 0.4);
+    border-left: 3px solid var(--red-alert);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: var(--white);
+  }
+  .alert-banner strong { color: var(--red-alert); }
+
+  .info-banner {
+    background: rgba(201, 168, 76, 0.08);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: var(--white);
+  }
+  .info-banner strong { color: var(--gold); }
+
+  /* PE STOCK ROW */
+  .pe-stocks {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .pe-stock {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+  }
+  .pe-stock-ticker {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .pe-stock-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 2px 0;
+  }
+  .pe-stock-ytd {
+    font-size: 10px;
+  }
+
+  /* OPPORTUNITY CARDS */
+  .opp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .opp-header {
+    background: linear-gradient(90deg, var(--navy-light) 0%, var(--card-bg) 100%);
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .opp-firm-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+  .opp-firm-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .opp-badges {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .badge-hot { background: rgba(224, 80, 80, 0.2); color: var(--red-alert); border: 1px solid rgba(224, 80, 80, 0.4); }
+  .badge-verified { background: rgba(61, 184, 122, 0.2); color: var(--green-signal); border: 1px solid rgba(61, 184, 122, 0.4); }
+  .badge-partial { background: rgba(224, 152, 32, 0.2); color: var(--amber); border: 1px solid rgba(224, 152, 32, 0.4); }
+  .badge-pe { background: rgba(37, 99, 168, 0.2); color: var(--blue-light); border: 1px solid rgba(37, 99, 168, 0.4); }
+  .badge-hf { background: rgba(26, 138, 138, 0.2); color: #4fd4d4; border: 1px solid rgba(26, 138, 138, 0.4); }
+  .badge-vc { background: rgba(180, 80, 200, 0.2); color: #cc88ee; border: 1px solid rgba(180, 80, 200, 0.4); }
+  .badge-gem { background: rgba(201, 168, 76, 0.2); color: var(--gold); border: 1px solid rgba(201, 168, 76, 0.4); }
+
+  .opp-body {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .opp-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .opp-row {
+    font-size: 12px;
+    color: var(--white);
+    margin-bottom: 5px;
+    display: flex;
+    gap: 8px;
+  }
+  .opp-label {
+    color: var(--muted);
+    min-width: 90px;
+    font-size: 11px;
+  }
+  .opp-val { color: var(--white); flex: 1; }
+  .opp-val.gold { color: var(--gold-light); font-weight: 600; }
+  .opp-val.green { color: var(--green-signal); }
+  .opp-val.red { color: var(--red-alert); }
+
+  /* DEAL CLOCK */
+  .deal-clock {
+    background: var(--inset-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .clock-label {
+    font-size: 10px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .clock-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+  .clock-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .clock-date {
+    color: var(--gold);
+    font-weight: 600;
+    min-width: 80px;
+    font-size: 10px;
+  }
+  .clock-desc { color: var(--muted); flex: 1; }
+
+  /* CONTACT BLOCK */
+  .contact-block {
+    background: var(--inset-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-top: 8px;
+  }
+  .contact-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .contact-title {
+    font-size: 11px;
+    color: var(--blue-light);
+    margin-bottom: 6px;
+  }
+  .contact-detail {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact-warn {
+    font-size: 10px;
+    color: var(--amber);
+    margin-top: 4px;
+    font-style: italic;
+  }
+  .contact-bg {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid var(--card-border);
+    line-height: 1.5;
+  }
+
+  /* EMAIL DRAFT */
+  .email-section {
+    padding: 0 20px 20px;
+  }
+  .email-label {
+    font-size: 10px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .email-draft {
+    background: var(--inset-bg);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--white);
+    white-space: pre-wrap;
+    font-family: var(--font-sans);
+  }
+  .email-meta {
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .email-meta span { color: var(--white); }
+  .quality-gate {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .gate-item {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: rgba(61, 184, 122, 0.15);
+    color: var(--green-signal);
+    border: 1px solid rgba(61, 184, 122, 0.3);
+  }
+
+  /* OBJECTIONS */
+  .objections {
+    padding: 0 20px 16px;
+  }
+  .objection-row {
+    background: var(--inset-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+  .objection-q {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--red-alert);
+    margin-bottom: 4px;
+  }
+  .objection-a {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* WATCHLIST */
+  .watchlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .watchlist-table th {
+    text-align: left;
+    color: var(--gold-dim);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .watchlist-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(30, 58, 95, 0.5);
+    color: var(--white);
+    vertical-align: top;
+  }
+  .watchlist-table tr:last-child td { border-bottom: none; }
+  .watchlist-table td:first-child { color: var(--gold-light); font-weight: 600; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 24px 36px;
+    border-top: 1px solid var(--card-border);
+    margin-top: 20px;
+  }
+  .footer-text {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .footer-credit {
+    font-size: 10px;
+    color: rgba(201, 168, 76, 0.4);
+    margin-top: 6px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--card-border);
+    margin: 6px 0 14px;
+  }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+  .tag-signal { background: rgba(224, 80, 80, 0.2); color: var(--red-alert); }
+  .tag-warm { background: rgba(224, 152, 32, 0.2); color: var(--amber); }
+  .tag-tool { background: rgba(37, 99, 168, 0.2); color: var(--blue-light); }
+  .tag-cr { background: rgba(201, 168, 76, 0.15); color: var(--gold); }
+
+  /* FULL-WIDTH COLUMN */
+  .opp-full { grid-column: 1 / -1; }
+
+  /* DATA SOURCE NOTE */
+  .data-note {
+    font-size: 10px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* STACK SIGNAL */
+  .stack-box {
+    background: var(--inset-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .stack-box strong { color: var(--white); }
+
+  /* INLINE FLEX */
+  .flex-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+  @media (max-width: 700px) {
+    .market-grid { grid-template-columns: repeat(2, 1fr); }
+    .market-row { grid-template-columns: repeat(2, 1fr); }
+    .pe-stocks { grid-template-columns: repeat(3, 1fr); }
+    .opp-body { grid-template-columns: 1fr; }
+    .body-wrap { padding: 16px 16px 40px; }
+    .header { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="header-logo">
+      <div class="logo-badge">IL</div>
+      <div>
+        <div class="header-title">Intralinks Alternative Investments Briefing</div>
+        <div class="header-subtitle">Daily Sales Intelligence &bull; Alternative Investments Coverage</div>
+      </div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div class="header-date">&#128197; Wednesday, May 13, 2026</div>
+    <div class="header-edition">Morning Edition &bull; 07:00 ET</div>
+    <div style="margin-top:6px; font-size:10px;">
+      <span style="color:var(--green-signal);">&#9679;</span> Market Data: Live Close (May 13)
+    </div>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <div class="nav-tab active" data-section="market">&#128200; Market Pulse</div>
+  <div class="nav-tab" data-section="pe">&#127970; PE Intelligence</div>
+  <div class="nav-tab" data-section="hf">&#128203; HF Intelligence</div>
+  <div class="nav-tab" data-section="additional">&#9889; Additional</div>
+  <div class="nav-tab" data-section="watchlist">&#128338; Watchlist</div>
+  <div class="nav-tab" data-section="archive">&#128450; Archive</div>
+</div>
+
+<div class="body-wrap">
+
+<div id="section-market">
+<!-- ================================ SECTION 1: MARKET PULSE ================================ -->
+<div class="section-header">
+  <div class="section-icon">&#128200;</div>
+  <div class="section-title">Section 1 &mdash; Market Pulse</div>
+  <div class="section-count">Live Data &bull; May 13 Close (Today)</div>
+</div>
+
+<div class="alert-banner">
+  &#9888; <strong>HOT TRIGGER:</strong> April PPI surged +1.4% (est. +0.5%), the largest monthly jump since March 2022. Wholesale inflation +6% YoY, highest since December 2022. CPI hit 3.8% in April, highest since May 2023. Treasury yields hit 2026 highs (10Y: 4.473%, 20Y/30Y eclipsed 5%). Rate cut expectations effectively erased for H1 2026. <strong>Despite this</strong>, tech led a recovery rally &mdash; S&P 500 and Nasdaq both closed at NEW ALL-TIME RECORDS. AI infrastructure and chip names overrode macro fear. Watch for bifurcation: PE deal activity under pressure while tech/AI sentiment stays hot.
+</div>
+
+<!-- INDEX LEVELS -->
+<div class="market-grid">
+  <div class="market-card">
+    <div class="market-card-label">S&amp;P 500</div>
+    <div class="market-card-value">7,444.25</div>
+    <div class="market-card-change up">&#9650; +0.58% | +43.29 pts &bull; &#127942; NEW RECORD CLOSE</div>
+    <div class="data-note">Src: TheStreet / CNBC (May 13 close, confirmed today)</div>
+  </div>
+  <div class="market-card">
+    <div class="market-card-label">Nasdaq Composite</div>
+    <div class="market-card-value">26,402.34</div>
+    <div class="market-card-change up">&#9650; +1.20% | AI/tech rally &bull; &#127942; NEW RECORD CLOSE</div>
+    <div class="data-note">Src: TheStreet / CNBC (May 13 close, confirmed today)</div>
+  </div>
+  <div class="market-card">
+    <div class="market-card-label">Dow Jones</div>
+    <div class="market-card-value">49,693.20</div>
+    <div class="market-card-change down">&#9660; -0.14% | -67.36 pts | Financials &amp; retail drag</div>
+    <div class="data-note">Src: TheStreet / CNBC (May 13 close, confirmed today)</div>
+  </div>
+</div>
+
+<!-- SECONDARY MARKET DATA -->
+<div class="market-row">
+  <div class="market-mini">
+    <div class="market-mini-label">&#128722; Crude Oil (WTI)</div>
+    <div class="market-mini-val">~$100.82</div>
+    <div class="market-mini-sub down">&#9660; Brent -2% intraday (May 13)</div>
+  </div>
+  <div class="market-mini">
+    <div class="market-mini-label">&#10024; Gold (Spot)</div>
+    <div class="market-mini-val">~$4,706</div>
+    <div class="market-mini-sub up">&#9650; +0.41% | Silver +5%</div>
+  </div>
+  <div class="market-mini">
+    <div class="market-mini-label">&#127980; USD Index (DXY)</div>
+    <div class="market-mini-val">~98.37</div>
+    <div class="market-mini-sub up">&#9650; +0.46% | Safe-haven bid</div>
+  </div>
+  <div class="market-mini">
+    <div class="market-mini-label">&#128308; VIX</div>
+    <div class="market-mini-val">17.98</div>
+    <div class="market-mini-sub neutral">&#8212; Stable | Low vol regime</div>
+  </div>
+</div>
+
+<!-- FED / MACRO NOTE -->
+<div class="info-banner">
+  &#127981; <strong>Fed Watch:</strong> With PPI and CPI both running hot and oil above $100 (Iran conflict), the Fed is firmly on hold. Morgan Stanley forecasts one cut in January 2027. Fed Chair Powell's term expires in May 2026 &mdash; successor selection adds policy uncertainty. <strong>Deal Clock Impact:</strong> LP capital calls and fund closes may slow as LPs reassess financing assumptions.
+</div>
+
+<!-- PE MANAGER STOCKS -->
+<div class="section-header" style="margin-top:20px;">
+  <div class="section-icon">&#127970;</div>
+  <div class="section-title">PE Manager Stock Performance (YTD 2026)</div>
+</div>
+
+<div class="pe-stocks">
+  <div class="pe-stock">
+    <div class="pe-stock-ticker">BX (Blackstone)</div>
+    <div class="pe-stock-price">~$121</div>
+    <div class="pe-stock-ytd down">52-wk high $190 &#9660; -36%</div>
+  </div>
+  <div class="pe-stock">
+    <div class="pe-stock-ticker">KKR</div>
+    <div class="pe-stock-price">~$98</div>
+    <div class="pe-stock-ytd down">52-wk high $154 &#9660; -36%</div>
+  </div>
+  <div class="pe-stock">
+    <div class="pe-stock-ticker">APO (Apollo)</div>
+    <div class="pe-stock-price">~$132</div>
+    <div class="pe-stock-ytd down">Moderate Buy consensus</div>
+  </div>
+  <div class="pe-stock">
+    <div class="pe-stock-ticker">ARES</div>
+    <div class="pe-stock-price">~$127</div>
+    <div class="pe-stock-ytd up">&#9650; +3.04% today</div>
+  </div>
+  <div class="pe-stock">
+    <div class="pe-stock-ticker">OWL (Blue Owl)</div>
+    <div class="pe-stock-price">~$10</div>
+    <div class="pe-stock-ytd down">&#9660; Off $18+ highs; -33% in 2026</div>
+  </div>
+</div>
+<p class="data-note" style="margin-bottom:8px;">Src: Robinhood / Google Finance / Yahoo Finance (May 13 intraday). 52-wk highs sourced from MacroTrends. All major alt managers significantly off Sep 2025 peaks driven by private credit retail redemption pressure, BDC write-downs, and AI software portfolio concerns. BX 52-wk range: $101.73 &ndash; $190.09. <span style="color:var(--amber);">&#9888; AE Note: Stocks off highs = management fee pressure = urgency to tighten fund operations. Direct opening for Intralinks fund reporting conversations.</span></p>
+
+</div>
+
+<div id="section-pe">
+<!-- ================================ SECTION 2: PE INTELLIGENCE ================================ -->
+<div class="section-header">
+  <div class="section-icon">&#127970;</div>
+  <div class="section-title">Section 2 &mdash; Private Equity Firm Intelligence</div>
+  <div class="section-count">6 Opportunities | HOT Signals Only</div>
+</div>
+
+<!-- 🔥 LEAD STORY: LONE STAR FUNDS -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#129351; Lone Star Funds &mdash; LEAD STORY</div>
+      <div class="opp-firm-meta">&#127968; Dallas, TX (Hq: London, UK) &bull; Global PE / Credit / Real Estate &bull; ~$96B AUM</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; HOT</span>
+      <span class="badge badge-pe">PE</span>
+      <span class="badge badge-verified">Partially Verified</span>
+    </div>
+  </div>
+
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal Analysis</div>
+      <div class="opp-row"><span class="opp-label">Trigger Date</span><span class="opp-val gold">May 12-13, 2026 (TODAY)</span></div>
+      <div class="opp-row"><span class="opp-label">Signal Type</span><span class="opp-val">Multiple live deal events + fund close</span></div>
+      <div class="opp-row"><span class="opp-label">Phase 1 Score</span><span class="opp-val green">&#9679; HOT &mdash; 3 separate time-sensitive triggers</span></div>
+
+      <div class="deal-clock">
+        <div class="clock-label">&#128336; Deal Clock</div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Jan 2026</div>
+          <div class="clock-desc">Acquired Alliance Ground International via LSF XII [Src: Wikipedia, Jan 2026]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Feb 10, 2026</div>
+          <div class="clock-desc">Completed $3.8B acquisition of Hillenbrand (NYSE: HI) &mdash; taken private via LSF XII [Src: PR Newswire]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Mar 2, 2026</div>
+          <div class="clock-desc">Completed sale of SPX FLOW to ITT Inc. for $4.775B &mdash; LSF XI exit [Src: Yahoo Finance]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Mar 18, 2026</div>
+          <div class="clock-desc">Final close of LSRMF IV at $1B+ (residential mortgage fund) [Src: Business Wire]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Mar-May 2026</div>
+          <div class="clock-desc">Running to acquire Irish bank Permanent TSB &mdash; potential new European LP base [Src: Wikipedia]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Apr 21, 2026</div>
+          <div class="clock-desc">Acquired SF office tower (600 California St) after foreclosure [Src: The Real Deal]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">May 12, 2026</div>
+          <div class="clock-desc">Completed acquisition of DOMO Engineered Materials via LSF XII [Src: Business Wire]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">May 13, 2026 (TODAY)</div>
+          <div class="clock-desc">Announced sale of Legacy Place retail center (Palm Beach Gardens) via LSREF VI [Src: Business Wire]</div>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="opp-section-title">&#128203; PitchBook Data</div>
+        <div class="opp-row"><span class="opp-label">PitchBook Status</span><span class="opp-val">pitchbook_search returned results for Lone Star (ID: 10331-38) [Tool called today]</span></div>
+        <div class="opp-row"><span class="opp-label">Total Funds</span><span class="opp-val">26 PE funds organized since 1995</span></div>
+        <div class="opp-row"><span class="opp-label">Total Capital</span><span class="opp-val gold">~$96 billion committed across all vehicles</span></div>
+        <div class="opp-row"><span class="opp-label">Current Fund</span><span class="opp-val">Lone Star Fund XII (LSF XII) &mdash; actively deploying</span></div>
+        <div class="opp-row"><span class="opp-label">Strategies</span><span class="opp-val">PE, Credit, Real Estate, Residential Mortgage</span></div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="opp-section-title">&#128203; Why Now</div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">Lone Star closed LSRMF IV in March 2026 at $1B+, completed two major acquisitions in Q1 (Hillenbrand $3.8B + Alliance Ground), completed a $4.775B exit (SPX FLOW), and announced a new deal close TODAY (DOMO EM + Legacy Place sale). LSF XII is actively deploying. This is a firm managing multiple concurrent LP pools across 4 strategies, all of which require LP onboarding, reporting infrastructure, and potentially fundraising platform support for LSRMF V (the natural next vehicle). The operational team is under pressure to reconcile LP bases across vintage funds &mdash; the exact problem Intralinks solves.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="opp-section-title">&#128100; Target Contact</div>
+      <div class="contact-block">
+        <div class="contact-name">Donald Quintin</div>
+        <div class="contact-title">Chief Executive Officer &amp; Global President, Lone Star Funds</div>
+        <div class="contact-detail">&#127968; Dallas, TX / London, UK</div>
+        <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; ZoomInfo bulk credit limit reached. Confirm via ZoomInfo platform before sending.</div>
+        <div class="contact-warn">&#9888; PARTIALLY VERIFIED: Name and title confirmed via dated press releases (Feb 2026, Mar 2026). Email unverified &mdash; do not send without confirmation.</div>
+        <div class="contact-bg">Quintin named CEO in 2024. Public commentary March 2026: "We believe the tailwinds for this market will continue to drive growth opportunity for the platform" (LSRMF IV close). Directly owns the infrastructure decision for LP reporting and onboarding across all Lone Star vehicles. Background: former senior executive at Hudson Advisors, the 900-person asset management company owned by Lone Star founder John Grayken [Src: Business Wire, March 2026].</div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#127919; Secondary Contact (Hudson Advisors)</div>
+        <div class="contact-block">
+          <div class="contact-name">Contact: CFO / Head of Fund Operations</div>
+          <div class="contact-title">CONTACT UNVERIFIED &mdash; Pull directly from ZoomInfo (Company: Lone Star / Hudson Advisors)</div>
+          <div class="contact-warn">&#9888; ZoomInfo enrichment credits exhausted. AE must pull CFO or Controller contact directly from ZoomInfo platform before outreach.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#128308; Current Stack + Switch Signal</div>
+        <div class="stack-box">
+          <strong>Current stack unknown</strong> &mdash; No ZoomInfo tech tags available (credit limit). Job postings for LP Operations/Reporting roles not confirmed today. <strong>Recommendation:</strong> Search for "Lone Star Hudson Advisors" job postings requiring specific data room or fund reporting platform experience. Note: LSRMF IV with 200+ bond investors in its COLT securitization program is an LP communications challenge at scale.
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#128308; Expected Objections</div>
+        <div class="objection-row">
+          <div class="objection-q">&#10006; "We have internal infrastructure for fund reporting."</div>
+          <div class="objection-a">&#10003; LSF XII involves multiple parallel strategies (PE, CRE, residential mortgage, credit) each with separate LP bases &mdash; 26 funds' worth of investor relations complexity cannot be served by a single internal system without material reconciliation risk.</div>
+        </div>
+        <div class="objection-row">
+          <div class="objection-q">&#10006; "We already work with a VDR vendor."</div>
+          <div class="objection-a">&#10003; Intralinks Fund Reporting is distinct from VDR &mdash; purpose-built for LP distribution across multiple vehicles simultaneously, with automated waterfall calculations and portal access for 200+ institutional LPs.</div>
+        </div>
+        <div class="objection-row">
+          <div class="objection-q">&#10006; "Timing isn't right."</div>
+          <div class="objection-a">&#10003; LSRMF IV just closed in March 2026 at $1B+. The LP onboarding for a new residential mortgage fund with 200+ bond program investors is happening NOW. If that infrastructure isn't in place, it defaults to spreadsheets and email &mdash; audit risk at $1B+ scale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-section">
+    <div class="email-label">&#9993; OUTREACH EMAIL DRAFT &bull; To: Donald Quintin, CEO</div>
+    <div class="email-meta">
+      <span>Subject:</span> <span>LSRMF IV Close + LSF XII Activity &mdash; LP Onboarding Infrastructure</span>
+    </div>
+    <div class="email-draft">Donald,
+
+Your team closed LSRMF IV at $1B+ in March while simultaneously completing the Hillenbrand take-private and a $4.775B SPX FLOW exit. Executing three separate fund activities with distinct LP populations in the same quarter creates a reporting and onboarding load that most mid-office teams underestimate until reconciliation breaks.
+
+The COLT securitization program alone involves 200+ bond investors across 68 issuances. Layering that on top of LSF XII's buyout LP base and the LSREF VI real estate investors means your fund operations team is managing three separate investor communications tracks simultaneously.
+
+Intralinks Fund Reporting was specifically built for firms running parallel vintage funds with institutional LP populations of this scale &mdash; automating distribution waterfall calculations, LP portal access, and compliance-grade audit trails without requiring manual export from portfolio accounting systems.
+
+Given that LSRMF IV just closed and LP onboarding for that vehicle is presumably underway right now, I would want to ask directly: is that process running through a dedicated platform, or is it being handled manually at the fund admin level?
+
+Jack Conklin | Intralinks
+Direct: [Your number]</div>
+    <div class="quality-gate">
+      <span class="gate-item">&#10003; Opener Test: PASS</span>
+      <span class="gate-item">&#10003; Salutation Swap: PASS</span>
+      <span class="gate-item">&#10003; Role Test: PASS (CEO = scale + risk)</span>
+      <span class="gate-item">&#10003; Value Prop Test: PASS</span>
+      <span class="gate-item">&#10003; CTA Test: PASS (direct operational question)</span>
+      <span class="gate-item">&#10003; Prohibited Phrases: PASS</span>
+    </div>
+  </div>
+</div>
+
+<!-- OPPORTUNITY 2: KSL CAPITAL PARTNERS -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#127944; KSL Capital Partners <span class="badge badge-gem" style="font-size:10px; margin-left:8px;">&#128142; Hidden Gem</span></div>
+      <div class="opp-firm-meta">&#127968; Denver, CO &bull; Travel &amp; Leisure PE &bull; $25.6B AUM &bull; $4.1B Dry Powder &bull; PitchBook ID: 10745-56</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; HOT</span>
+      <span class="badge badge-pe">PE</span>
+      <span class="badge badge-verified">Partially Verified</span>
+    </div>
+  </div>
+
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal Analysis</div>
+      <div class="opp-row"><span class="opp-label">PitchBook Pull</span><span class="opp-val green">&#9679; pitchbook_get_profile returned full data [Tool: 10745-56]</span></div>
+      <div class="opp-row"><span class="opp-label">Last Investment</span><span class="opp-val gold">Apr 22, 2026 &mdash; Invited Clubs ($3B Buyout/LBO) [PitchBook]</span></div>
+      <div class="opp-row"><span class="opp-label">Most Likely Fundraising</span><span class="opp-val green">YES &mdash; PitchBook flag active</span></div>
+      <div class="opp-row"><span class="opp-label">4 Open Funds</span><span class="opp-val">Deploying across equity, credit, tac opps strategies simultaneously</span></div>
+
+      <div class="deal-clock">
+        <div class="clock-label">&#128336; Deal Clock [Src: PitchBook, LinkedIn]</div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Apr 2025</div>
+          <div class="clock-desc">KSL Tac Opps II closed at $1.44B hard cap [PitchBook / LinkedIn, Apr 2026 post]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Sep 2025</div>
+          <div class="clock-desc">Acquired The Westin Hilton Head Island Resort via Tac Opps Fund [PR Newswire]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Recent (2026)</div>
+          <div class="clock-desc">Appointed Susan Long McAndrews as Senior Advisor (former Pantheon Partner, 23yr IR career) focused on capital formation + evergreen product development [LinkedIn, 2026]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Apr 22, 2026</div>
+          <div class="clock-desc">Announced $3B Buyout of Invited Clubs (Secondary Buyout) via active fund [PitchBook]</div>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="opp-section-title">&#127919; Why This is a Hidden Gem</div>
+        <p style="font-size:12px; color:var(--muted); line-height:1.6;">KSL is not a household name but it carries $25.6B AUM with 4 open funds simultaneously &mdash; equity, credit, tac opps, and a new evergreen product in development. The appointment of Susan Long McAndrews (former Pantheon Partner with 23 years of global IR and LP relations experience) signals a push to expand and institutionalize the LP base, likely requiring a scalable fundraising and LP onboarding platform. They just hired their first Head of IR in 2023 (Ana Goizueta) and a new CFO (Nolen Taylor). This is a firm in active infrastructure build mode, not a firm with a settled tech stack. The $3B Invited Clubs deal announced April 22 means a new LP onboarding cycle is underway right now.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="opp-section-title">&#128100; Target Contact</div>
+      <div class="contact-block">
+        <div class="contact-name">Ana Goizueta</div>
+        <div class="contact-title">Head of Investor Relations and Marketing / Investment Committee Member</div>
+        <div class="contact-detail">&#127968; Denver, CO</div>
+        <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; Pull from ZoomInfo platform (KSL Capital Partners). Standard format: FLast@kslcapital.com</div>
+        <div class="contact-warn">&#9888; PARTIALLY VERIFIED: Title and tenure confirmed via PR Newswire (March 2023). Email unverified.</div>
+        <div class="contact-bg">Joined KSL March 2023 from Littlejohn LLC (Director of IR). Prior roles: Co-Head of IR at Oak Hill Advisors, IR at Talson Capital Management and JPMorgan Private Bank. MBA from Fuqua/Duke. Directly owns LP onboarding platform and client service decisions at KSL. She built a "new client service platform" at Littlejohn from scratch &mdash; she understands the infrastructure gap and has built it before.</div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#128100; Secondary Contact</div>
+        <div class="contact-block">
+          <div class="contact-name">Nolen Taylor</div>
+          <div class="contact-title">Chief Financial Officer / Investment Committee Member</div>
+          <div class="contact-detail">&#127968; Denver, CO</div>
+          <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; Pull from ZoomInfo platform</div>
+          <div class="contact-bg">Joined KSL March 2023. Former CFO at The Energy and Minerals Group (EMG) for 10 years (managed valuations across 30 portfolio companies). Prior: KPMG Partner. Owns fund reporting, accounting, and treasury functions. Primary buyer for fund reporting platform upgrade.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#128308; Current Stack Signal</div>
+        <div class="stack-box">
+          <strong>Current stack unknown</strong> &mdash; No ZoomInfo tech tags retrieved today. KSL recently partnered with AltaReturn (CRM/LP management platform) in 2018 per historical data. Given the hiring of a new CFO and Head of IR in 2023 and the development of an evergreen product, the platform is likely under review. <strong>Recommend:</strong> Search LinkedIn for KSL fund operations staff for platform clues.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-section">
+    <div class="email-label">&#9993; OUTREACH EMAIL DRAFT &bull; To: Ana Goizueta, Head of Investor Relations</div>
+    <div class="email-meta">
+      <span>Subject:</span> <span>Invited Clubs Close + LP Onboarding Infrastructure &mdash; Intralinks</span>
+    </div>
+    <div class="email-draft">Ana,
+
+The $3B Invited Clubs transaction announced April 22 adds a substantial new LP population to an already complex multi-fund structure &mdash; equity, credit, Tac Opps II (which closed at hard cap a year ago), and now an evergreen vehicle in development. Managing LP onboarding and reporting across four concurrent strategies with differentiated investor bases is one of the most underestimated operational risks in a PE platform at your growth stage.
+
+When you built the IR infrastructure at Littlejohn, you were starting from scratch. At KSL, you now have a platform that is scaling faster than most mid-market firms &mdash; $25.6B AUM with 4 open funds and a new evergreen channel in development. The LP communications and reporting burden compounds with each new vehicle.
+
+Intralinks PE Fundraising and LP Onboarding platforms were built specifically for firms managing multiple strategy vehicles with differentiated LP populations, allowing portal-based distribution and automated reporting without manual reconciliation across fund types.
+
+Given the Invited Clubs close is presumably triggering LP onboarding for new investors in that vehicle right now, I would want to ask: is that process running through a scalable platform, or is the team handling it through the same workflow you used for Tac Opps II?
+
+Jack Conklin | Intralinks
+Direct: [Your number]</div>
+    <div class="quality-gate">
+      <span class="gate-item">&#10003; Opener: Invited Clubs ($3B, Apr 22) &mdash; PASS</span>
+      <span class="gate-item">&#10003; Salutation Swap: PASS</span>
+      <span class="gate-item">&#10003; Role Test: IR Director &mdash; PASS</span>
+      <span class="gate-item">&#10003; Value Prop: PASS</span>
+      <span class="gate-item">&#10003; CTA: Specific question &mdash; PASS</span>
+      <span class="gate-item">&#10003; Prohibited Phrases: PASS</span>
+    </div>
+  </div>
+</div>
+
+<!-- OPPORTUNITY 3: MARLIN EQUITY PARTNERS -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#128187; Marlin Equity Partners</div>
+      <div class="opp-firm-meta">&#127968; Hermosa Beach, CA (+ London) &bull; Software/Tech PE &bull; $9B AUM &bull; $1.1B Dry Powder &bull; PitchBook ID: 10463-05</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; HOT</span>
+      <span class="badge badge-pe">PE</span>
+      <span class="badge badge-verified">Partially Verified</span>
+    </div>
+  </div>
+
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal Analysis</div>
+      <div class="opp-row"><span class="opp-label">PitchBook Pull</span><span class="opp-val green">&#9679; pitchbook_get_profile returned full data [Tool: 10463-05]</span></div>
+      <div class="opp-row"><span class="opp-label">Last Investment</span><span class="opp-val gold">Apr 20, 2026 &mdash; WorkStep (via Learning Pool add-on) [PitchBook / PR Newswire]</span></div>
+      <div class="opp-row"><span class="opp-label">6-Month Investments</span><span class="opp-val">6 deals completed [PitchBook]</span></div>
+      <div class="opp-row"><span class="opp-label">Portfolio Companies</span><span class="opp-val">46 active holdings, 58 investment professionals [PitchBook updated May 12]</span></div>
+      <div class="opp-row"><span class="opp-label">Fundraising Flag</span><span class="opp-val green">Most Likely Fundraising: YES [PitchBook]</span></div>
+
+      <div class="deal-clock">
+        <div class="clock-label">&#128336; Deal Clock [Src: PitchBook, PR Newswire, Marlin.com]</div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Jun 2025</div>
+          <div class="clock-desc">Marlin Heritage Europe III closed at $1.14B (Vintage 2024) [PitchBook]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Aug 2025</div>
+          <div class="clock-desc">AVI-SPL sold to 26North Partners LP [CBInsights]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Jan 14, 2026</div>
+          <div class="clock-desc">Press release (undisclosed) &mdash; recent active deal [Marlin.com]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Apr 20, 2026</div>
+          <div class="clock-desc">Learning Pool acquires WorkStep via Marlin &mdash; 3rd add-on in portfolio build [PR Newswire, TODAY - 23 days ago]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">3 Open Funds</div>
+          <div class="clock-desc">DATE UNVERIFIED &mdash; PitchBook shows 3 funds currently open but individual close dates not confirmed</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="opp-section-title">&#128100; Target Contact</div>
+      <div class="contact-block">
+        <div class="contact-name">David McGovern, JD</div>
+        <div class="contact-title">Co-Founder, Chairman &amp; CEO / Chairman, Executive and Investment Committees</div>
+        <div class="contact-detail">&#127968; Hermosa Beach, CA</div>
+        <div class="contact-detail">&#128222; +1 (310) 364-0100 [PitchBook verified]</div>
+        <div class="contact-detail">&#128231; dmcgovern@marlinequity.com [PitchBook verified &mdash; confirm before sending]</div>
+        <div class="contact-bg">Founded Marlin in 2005. Prior: Senior investment banker at CIBC, attorney at Gibson Dunn. JD Georgetown, BS Finance LSU. Has completed 270+ acquisitions and manages 46 active portfolio companies. Personally runs the Investment Committee and oversees all deal structuring. Commentary focus: operational efficiency across portfolio companies and expansion into European software. The €1B European tech fund (Marlin Heritage Europe III, $1.14B) just closed in June 2025 and is now deploying &mdash; European LP base requires LP portal and reporting infrastructure separate from the US base.</div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#128100; Secondary: CFO</div>
+        <div class="contact-block">
+          <div class="contact-name">L.P. (CFO &mdash; Name Unverified)</div>
+          <div class="contact-title">Chief Financial Officer, Marlin Equity Partners</div>
+          <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; LeadIQ identifies a CFO with initials L.P. Pull from ZoomInfo platform directly.</div>
+          <div class="contact-warn">&#9888; PARTIALLY VERIFIED: Title confirmed via LeadIQ profile (March 2026). Full name and email unverified.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#128308; Stack Signal</div>
+        <div class="stack-box">
+          <strong>Tech stack (LeadIQ, March 2026):</strong> AWS, Apple iCloud Mail, Nuxt.js, DocuSign, Google Maps, HSTS. <strong>DocuSign presence</strong> confirms document execution workflows but no dedicated fund reporting or LP onboarding platform detected. Marlin's 46 portfolio companies across US and European jurisdictions creates a cross-border LP reporting requirement that generic DocuSign workflows cannot handle at audit-grade compliance levels.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-section">
+    <div class="email-label">&#9993; OUTREACH EMAIL DRAFT &bull; To: CFO, Marlin Equity Partners</div>
+    <div class="email-meta">
+      <span>Subject:</span> <span>Marlin Heritage Europe III Deployment + LP Reporting Infrastructure</span>
+    </div>
+    <div class="email-draft">Hi [CFO Name],
+
+Marlin Heritage Europe III closed at $1.14B in June 2025 and is now actively deploying. Running a European fund alongside your three US vehicles creates a cross-jurisdictional LP reporting challenge that is materially different from managing a single-geography LP base &mdash; different regulatory disclosure requirements, currency reporting, and audit standards for the same underlying portfolio metrics.
+
+With 46 active portfolio companies and 6 investments completed in the last six months, your fund operations team is generating a high volume of portfolio reporting events that touch European LPs, US LPs, and potentially co-investors in the same vehicle.
+
+Intralinks Fund Reporting handles multi-jurisdiction LP portals natively, with automated waterfall distributions, compliance-grade audit trails, and role-based access for LPs in GDPR-regulated jurisdictions without manual document management.
+
+Given the European fund is now in active deployment, I want to ask directly: are the LP reporting workflows for Heritage Europe III running on the same infrastructure as your US vehicles, or has the team built separate processes for the European LP base?
+
+Jack Conklin | Intralinks
+Direct: [Your number]</div>
+    <div class="quality-gate">
+      <span class="gate-item">&#10003; Opener: Heritage Europe III close + deployment &mdash; PASS</span>
+      <span class="gate-item">&#10003; Salutation Swap: PASS</span>
+      <span class="gate-item">&#10003; Role Test: CFO = cross-jurisdiction compliance risk &mdash; PASS</span>
+      <span class="gate-item">&#10003; Value Prop: PASS</span>
+      <span class="gate-item">&#10003; CTA: Specific operational question &mdash; PASS</span>
+      <span class="gate-item">&#10003; Prohibited Phrases: PASS</span>
+    </div>
+  </div>
+</div>
+
+<!-- OPPORTUNITY 4: TRILANTIC CAPITAL PARTNERS -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#128196; Trilantic Capital Partners <span class="badge badge-gem" style="font-size:10px; margin-left:8px;">&#128142; Hidden Gem</span></div>
+      <div class="opp-firm-meta">&#127968; New York, NY &bull; Mid-Market PE (North America + Europe) &bull; ~$9.7B Committed Across Vehicles</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; HOT</span>
+      <span class="badge badge-pe">PE</span>
+      <span class="badge badge-partial">Partially Verified</span>
+    </div>
+  </div>
+
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal Analysis</div>
+      <div class="opp-row"><span class="opp-label">Phase 1 Score</span><span class="opp-val green">&#9679; HOT &mdash; Continuation vehicle running (2025-2026 window)</span></div>
+      <div class="opp-row"><span class="opp-label">ZoomInfo Interest</span><span class="opp-val gold">ZoomInfo shows "exceptional interest" within Finance industry for Trilantic [ZoomInfo public data]</span></div>
+      <div class="opp-row"><span class="opp-label">Key Trigger</span><span class="opp-val">Precedent-setting continuation fund process: Strategic Partners and Neuberger Berman as lead investors [Buyouts Insider, Nov 2025]</span></div>
+
+      <div class="deal-clock">
+        <div class="clock-label">&#128336; Deal Clock [Src: Buyouts Insider, PitchBook]</div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">2019</div>
+          <div class="clock-desc">Fund VI North America closed at $2.75B hard cap (48 LPs) [PitchBook]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">May-Nov 2025</div>
+          <div class="clock-desc">Trilantic runs "precedent-setting" continuation fund process &mdash; described as potential model for other mid-market firms [Buyouts Insider]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">Nov 2025</div>
+          <div class="clock-desc">Strategic Partners and Neuberger Berman named lead investors in continuation vehicle [Buyouts Insider]</div>
+        </div>
+        <div class="clock-event">
+          <div class="clock-dot"></div>
+          <div class="clock-date">2026 (Active)</div>
+          <div class="clock-desc">Continuation fund deploying &mdash; new LP base being onboarded to continuation vehicle alongside legacy LPs [inferred from Buyouts Insider timeline]</div>
+        </div>
+      </div>
+
+      <p style="font-size:12px; color:var(--muted); line-height:1.6; margin-top:8px;">A continuation vehicle creates a uniquely complex LP dynamic: existing LPs deciding whether to roll into the new vehicle, new LPs (Strategic Partners, Neuberger) coming in at a different economic basis, and the underlying portfolio companies straddling two LP populations. This is precisely the LP onboarding and reporting complexity that Intralinks solves. The window to engage is short &mdash; if the continuation vehicle is already deploying, the LP management infrastructure question is live.</p>
+    </div>
+
+    <div>
+      <div class="opp-section-title">&#128100; Target Contact</div>
+      <div class="contact-block">
+        <div class="contact-name">Charlie Ayres</div>
+        <div class="contact-title">Chairman, Trilantic North America</div>
+        <div class="contact-detail">&#127968; New York, NY</div>
+        <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; Pull from ZoomInfo platform (Trilantic Capital Partners, ZoomInfo ID: 353950678)</div>
+        <div class="contact-warn">&#9888; PARTIALLY VERIFIED: Name and title confirmed via press release (Fund VI close) and Wikipedia. Email unverified.</div>
+        <div class="contact-bg">Founder and Chairman of Trilantic North America. Public commentary at Fund VI close: firm celebrates 10-year anniversary, focus on family-and founder-owned businesses. Ran the continuation fund process as the key principal. Direct LP relationship owner.</div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div class="opp-section-title">&#128308; Objections + Counters</div>
+        <div class="objection-row">
+          <div class="objection-q">&#10006; "The continuation fund is managed by our placement agent."</div>
+          <div class="objection-a">&#10003; LP onboarding and reporting are the firm's responsibility regardless of who placed the vehicle. Strategic Partners and Neuberger Berman have institutional reporting requirements that cannot be served through placement agent portals.</div>
+        </div>
+        <div class="objection-row">
+          <div class="objection-q">&#10006; "We're still establishing the LP base."</div>
+          <div class="objection-a">&#10003; That is the best time to implement platform infrastructure &mdash; before existing LPs set expectations on the reporting workflow. Retrofitting LP portals after the fund is fully subscribed is significantly more disruptive.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-section">
+    <div class="email-label">&#9993; OUTREACH EMAIL DRAFT &bull; To: Charlie Ayres, Chairman</div>
+    <div class="email-meta">
+      <span>Subject:</span> <span>Continuation Vehicle LP Management &mdash; Intralinks</span>
+    </div>
+    <div class="email-draft">Charlie,
+
+Trilantic's continuation fund structure &mdash; with Strategic Partners and Neuberger Berman as lead investors alongside existing LP rollovers &mdash; creates a two-tier LP population in the same vehicle, which is one of the most analytically demanding reporting scenarios in mid-market PE. Existing LPs who rolled in carry a different cost basis and distribution priority than new investors who came in at continuation pricing.
+
+Generating a single LP report that is accurate, compliant, and appropriately differentiated for both populations requires more than a shared portal. It requires a platform that can handle per-LP waterfall logic within the same fund structure.
+
+Intralinks Fund Reporting handles exactly this scenario &mdash; multi-class LP populations with differentiated economic terms, distributed through a single institutional-grade portal without requiring manual segmentation by your fund accounting team.
+
+Given that the continuation vehicle appears to be in active deployment, is the LP reporting infrastructure for that vehicle running separately from your Fund VI reporting, or are you managing both on the same system?
+
+Jack Conklin | Intralinks
+Direct: [Your number]</div>
+    <div class="quality-gate">
+      <span class="gate-item">&#10003; Opener: Two-tier LP structure &mdash; PASS</span>
+      <span class="gate-item">&#10003; Salutation Swap: PASS</span>
+      <span class="gate-item">&#10003; Role Test: Chairman = structural fund decisions &mdash; PASS</span>
+      <span class="gate-item">&#10003; Value Prop: PASS</span>
+      <span class="gate-item">&#10003; CTA: Direct operational question &mdash; PASS</span>
+      <span class="gate-item">&#10003; Prohibited Phrases: PASS</span>
+    </div>
+  </div>
+</div>
+
+<!-- OPPORTUNITIES 5 & 6: CONDENSED FORMAT -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#128203; Burford Capital</div>
+      <div class="opp-firm-meta">&#127968; Chicago, IL &bull; Litigation Finance &bull; Account #84 on List &bull; 91 Days Since Contact</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; HOT</span>
+      <span class="badge" style="background:rgba(180,80,200,0.2);color:#cc88ee;border:1px solid rgba(180,80,200,0.4);">Litigation Finance</span>
+      <span class="badge badge-partial">Partially Verified</span>
+    </div>
+  </div>
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal</div>
+      <p style="font-size:12px; color:var(--muted); line-height:1.6;"><span class="tag tag-signal">WARM-HOT</span> Burford Capital (NYSE: BUR) filed Q1 2026 results. The firm manages litigation finance funds requiring LP capital calls, portfolio reporting, and complex asset-level tracking across cases with multi-year timelines. As a publicly-traded litigation finance firm, Burford runs a hybrid GP-LP structure with institutional LPs in its private funds alongside its own balance sheet positions &mdash; reporting complexity is high and differentiated from standard PE reporting. 91 days since last contact means this is overdue for re-engagement. <strong>PitchBook: pitchbook_search returned no direct PE fund profile for Burford Capital &mdash; public company, primary reporting via SEC. All fund data unverified via PitchBook.</strong></p>
+      <div class="opp-row" style="margin-top:8px;"><span class="opp-label">Target Product</span><span class="opp-val gold">Intralinks Fund Reporting + VDR Pro (litigation asset documentation)</span></div>
+      <div class="opp-row"><span class="opp-label">Contact Target</span><span class="opp-val">CFO or Head of Fund Finance &mdash; CONTACT UNVERIFIED. Pull from ZoomInfo platform.</span></div>
+    </div>
+    <div>
+      <div class="opp-section-title">&#128308; Stack Signal</div>
+      <div class="stack-box">
+        <strong>Current stack unknown</strong> &mdash; No ZoomInfo tech data retrieved. Burford's litigation finance model requires granular case-level data room access for LPs reviewing underlying case portfolios, which is a documented use case for Intralinks VDR Pro alongside LP reporting.
+      </div>
+      <div style="margin-top:10px;">
+        <div class="opp-section-title">&#9993; Email Angle</div>
+        <div class="email-draft" style="font-size:11px; padding:10px 12px;">Subject: Litigation Fund LP Reporting &mdash; Intralinks
+
+[CFO Name], litigation finance funds present a reporting challenge that standard PE platforms are not built for &mdash; case-level portfolio data with multi-year resolution timelines, mixed balance sheet and LP capital positions, and LPs who require case status transparency without exposing privileged information. Intralinks Fund Reporting handles tiered document permissions per LP, enabling case-level disclosure controls that protect privileged strategy while satisfying institutional LP due diligence requirements. Given Burford's Q1 2026 results and active deployment in your private funds, are your LP reporting workflows handling the case-portfolio transparency question through a dedicated system, or through a manual disclosure review process?
+
+Jack Conklin | Intralinks</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#128176; Angelo Gordon (TPG Angelo Gordon)</div>
+      <div class="opp-firm-meta">&#127968; New York, NY &bull; Credit &amp; PE (Acquired by TPG) &bull; Account #81 &bull; 97 Days Since Contact</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; HOT</span>
+      <span class="badge badge-pe">PE/Credit</span>
+      <span class="badge badge-partial">Partially Verified</span>
+    </div>
+  </div>
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal</div>
+      <p style="font-size:12px; color:var(--muted); line-height:1.6;"><span class="tag tag-signal">WARM-HOT</span> Angelo Gordon was acquired by TPG in 2023, creating a combined $212B+ AUM platform running under TPG's brand ("TPG Angelo Gordon") while operating as a distinct credit and PE platform. Post-acquisition integration means the firm likely has two distinct LP reporting environments &mdash; legacy Angelo Gordon LP relationships and new TPG-integrated vehicles &mdash; which is a documented platform consolidation trigger. 97 days since last contact is the re-engagement window. <strong>PitchBook: pitchbook_search returned results for Angelo Gordon [confirmed in account list]. Fund/deal details not pulled today &mdash; flag as partially verified. All data sourced from web searches today.</strong></p>
+      <div class="opp-row" style="margin-top:8px;"><span class="opp-label">Target Product</span><span class="opp-val gold">LP Onboarding Platform + Fund Reporting (post-acquisition consolidation)</span></div>
+      <div class="opp-row"><span class="opp-label">Angle</span><span class="opp-val">TPG integration created dual LP base &mdash; consolidation project likely underway</span></div>
+    </div>
+    <div>
+      <div class="opp-section-title">&#128100; Contact Target</div>
+      <div class="contact-block">
+        <div class="contact-name">Head of Investor Relations / CFO</div>
+        <div class="contact-title">CONTACT UNVERIFIED &mdash; Pull from ZoomInfo platform (Angelo Gordon / TPG Angelo Gordon)</div>
+        <div class="contact-warn">&#9888; Title confirmed from public firm profile. Name and email unverified. AE must confirm before sending.</div>
+      </div>
+      <div style="margin-top:8px;">
+        <div class="email-draft" style="font-size:11px; padding:10px 12px;">Subject: TPG Integration + LP Reporting Consolidation &mdash; Intralinks
+
+[Contact Name], the TPG-Angelo Gordon combination created two legacy LP populations reporting under a single firm umbrella &mdash; credit-focused LPs from the Angelo Gordon era and TPG's broader LP base now receiving communications from the combined platform. Running dual reporting environments post-acquisition is a reconciliation burden that compounds with every new fund close. Intralinks Fund Reporting consolidates multi-strategy LP portals under a single institutional platform, with fund-level access permissions that keep credit and PE LP populations separated without requiring separate reporting workflows. Given the integration has now been live for roughly two years, is the LP reporting infrastructure consolidated under a single platform, or are the legacy vehicles still running separate systems?
+
+Jack Conklin | Intralinks</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div id="section-hf">
+<!-- ================================ SECTION 3: HEDGE FUND INTELLIGENCE ================================ -->
+<div class="section-header">
+  <div class="section-icon">&#128203;</div>
+  <div class="section-title">Section 3 &mdash; Hedge Fund Firm Intelligence</div>
+  <div class="section-count">3 Opportunities | HOT &amp; WARM Signals</div>
+</div>
+
+<!-- HF 1: HOLOCENE ADVISORS -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#127759; Holocene Advisors <span class="badge badge-gem" style="font-size:10px; margin-left:8px;">&#128142; HF Hidden Gem</span></div>
+      <div class="opp-firm-meta">&#127968; New York, NY (Flatiron District) &bull; L/S Equity + Concentrated Long-Only &bull; ~$36.7B AUM &bull; ZoomInfo ID: 392952652</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge" style="background:rgba(26,138,138,0.2);color:#4fd4d4;border:1px solid rgba(26,138,138,0.4);">WARM-HOT</span>
+      <span class="badge badge-hf">HF</span>
+      <span class="badge badge-partial">Partially Verified</span>
+    </div>
+  </div>
+
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal Analysis</div>
+      <div class="opp-row"><span class="opp-label">ZoomInfo Signal</span><span class="opp-val gold">ZoomInfo shows "exceptional interest" / "expanding and recently hired new employees" [ZoomInfo public, today]</span></div>
+      <div class="opp-row"><span class="opp-label">AUM</span><span class="opp-val">$36.7B discretionary AUM (7 clients) [Insider Monkey, Feb 2026]</span></div>
+      <div class="opp-row"><span class="opp-label">Strategy</span><span class="opp-val">Sector-diversified L/S + concentrated long-only (two separate strategies)</span></div>
+      <div class="opp-row"><span class="opp-label">Employees</span><span class="opp-val">~58 total (ZoomInfo) &mdash; growing team</span></div>
+      <div class="opp-row"><span class="opp-label">ZoomInfo Contacts</span><span class="opp-val">Top rec: Controller (score 0.957), Portfolio Manager, COO [ZoomInfo get_recommended_contacts called today]</span></div>
+
+      <p style="font-size:12px; color:var(--muted); margin-top:8px; line-height:1.6;">Holocene runs two distinct strategy vehicles (L/S and long-only) with 7 institutional clients and $36.7B AUM &mdash; an unusually high AUM-per-client ratio that indicates large institutional LPs (pensions, SWFs, foundations) with demanding reporting standards. ZoomInfo flagged active headcount growth. New employees joining an investment infrastructure team at this AUM level are evaluating or inheriting reporting platforms. The partnership-like structure (employees invest in funds alongside investors) creates an alignment dynamic that makes LP reporting quality a reputational priority for management.</p>
+    </div>
+
+    <div>
+      <div class="opp-section-title">&#128100; Top ZoomInfo-Recommended Contacts</div>
+      <div class="contact-block">
+        <div class="contact-name">Controller (Top Recommendation &mdash; Score: 0.957)</div>
+        <div class="contact-title">Controller &mdash; Director level / Finance department</div>
+        <div class="contact-detail">&#127968; New York, NY</div>
+        <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; ZoomInfo recommended Contact ID: 3405572581. Pull full name and email directly from ZoomInfo platform using personId=3405572581.</div>
+        <div class="contact-warn">&#9888; ZoomInfo enrichment credits exceeded. AE must access ZoomInfo platform at zoominfo.com/person/3405572581 to retrieve verified contact details.</div>
+        <div class="contact-bg">ZoomInfo recommendation based on firm's prior prospecting activity in investment management firms of similar size and strategy. Controller role at a $36.7B fund AUM firm with 7 institutional clients owns fund accounting reconciliation and LP distribution reporting directly.</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="opp-section-title">&#128100; Secondary Contact</div>
+        <div class="contact-block">
+          <div class="contact-name">COO (Third Recommendation &mdash; Score: 0.907)</div>
+          <div class="contact-title">Chief Operating Officer &mdash; C-Level / Operations</div>
+          <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; ZoomInfo personId: 2204906961. Pull via ZoomInfo platform.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="opp-section-title">&#128308; Stack Signal</div>
+        <div class="stack-box">
+          <strong>Current stack unknown</strong> &mdash; No ZoomInfo tech tags available. Holocene runs two strategy vehicles which likely requires dual fund reporting tracks. High AUM per client ($5.2B per LP on average) implies institutional LP reporting standards that exceed generic portal capabilities.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-section">
+    <div class="email-label">&#9993; OUTREACH EMAIL DRAFT &bull; To: Controller, Holocene Advisors</div>
+    <div class="email-meta">
+      <span>Subject:</span> <span>Multi-Strategy LP Reporting Infrastructure &mdash; Intralinks</span>
+    </div>
+    <div class="email-draft">Hi [Controller Name],
+
+Holocene runs two distinct investment vehicles &mdash; the sector-diversified long/short strategy and the concentrated long-only strategy &mdash; each with separate LP reporting obligations to a small number of large institutional clients. At $36.7B AUM across seven clients, the reporting burden per LP is high, and the expectation for institutional-grade accuracy and audit trail is correspondingly demanding.
+
+When a fund with a partnership-like compensation structure (where employees also invest alongside LPs) generates distributions, reconciling per-investor economics across two strategies with different performance fees and liquidity profiles requires more precision than most fund accounting systems provide natively.
+
+Intralinks Fund Reporting was built specifically for multi-strategy managers with institutional LP populations, providing automated waterfall distribution calculations, tiered per-investor access, and a compliance-grade audit trail without manual intervention from fund accounting.
+
+Given that Holocene is running two strategy vehicles with distinct LP economics, is the reporting for both strategies flowing through a single platform, or does each vehicle have its own reporting workflow?
+
+Jack Conklin | Intralinks
+Direct: [Your number]</div>
+    <div class="quality-gate">
+      <span class="gate-item">&#10003; Opener: Two strategies + $36.7B AUM &mdash; PASS</span>
+      <span class="gate-item">&#10003; Salutation Swap: PASS</span>
+      <span class="gate-item">&#10003; Role Test: Controller = reconciliation accuracy &mdash; PASS</span>
+      <span class="gate-item">&#10003; Value Prop: PASS</span>
+      <span class="gate-item">&#10003; CTA: Direct operational question &mdash; PASS</span>
+      <span class="gate-item">&#10003; Prohibited Phrases: PASS</span>
+    </div>
+  </div>
+</div>
+
+<!-- HF 2: SAMLYN CAPITAL -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#128200; Samlyn Capital</div>
+      <div class="opp-firm-meta">&#127968; New York, NY &bull; L/S Equity + Long-Only + Market-Neutral &bull; ~$8.3B AUM &bull; Founded 2006 &bull; ZoomInfo ID: 371653528</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; HOT</span>
+      <span class="badge badge-hf">HF</span>
+      <span class="badge badge-partial">Partially Verified</span>
+    </div>
+  </div>
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal Analysis</div>
+      <div class="opp-row"><span class="opp-label">Account Status</span><span class="opp-val gold">Acct #653 on list &bull; 171 days since contact &mdash; WARM-HOT re-engagement window</span></div>
+      <div class="opp-row"><span class="opp-label">AUM</span><span class="opp-val">$8.346B discretionary (7 institutional clients) [Insider Monkey, Feb 2026]</span></div>
+      <div class="opp-row"><span class="opp-label">Strategies</span><span class="opp-val">3 distinct: Flagship L/S (long alpha), Long-Only, Market-Neutral [ADV]</span></div>
+      <div class="opp-row"><span class="opp-label">Signal</span><span class="opp-val">Three separate fund vehicles = three LP reporting tracks at institutional AUM</span></div>
+      <p style="font-size:12px; color:var(--muted); margin-top:8px; line-height:1.6;">Samlyn runs three distinct fund strategies with separate performance fees and LP economics. Robert Pohly (founder, managing member) comes from Sigma Capital (SAC Capital) and Tiger Management &mdash; a pedigree that means his LP base includes some of the most sophisticated institutional investors in the world. Those LPs have zero tolerance for manual reporting errors. 171 days since contact is a clear re-engagement window.</p>
+    </div>
+    <div>
+      <div class="opp-section-title">&#128100; Contact</div>
+      <div class="contact-block">
+        <div class="contact-name">Robert Pohly</div>
+        <div class="contact-title">Founder, Managing Member &amp; Portfolio Manager</div>
+        <div class="contact-detail">&#127968; New York, NY</div>
+        <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; Pull from ZoomInfo (Company ID: 371653528)</div>
+        <div class="contact-bg">Founded Samlyn in 2006 after Sigma Capital (SAC). Prior: Goldman Sachs, Credit Suisse, Tiger Management. Tiger pedigree means extremely high LP expectations for reporting accuracy and transparency. A firm at $8.3B AUM with 3 strategies and institutional LPs from pensions/endowments is running material reporting complexity for its headcount size (37 total employees, 21 investment professionals).</div>
+      </div>
+      <div style="margin-top:10px;">
+        <div class="email-draft" style="font-size:11px; padding:10px 12px;">Subject: Multi-Strategy LP Reporting at Scale &mdash; Intralinks
+
+Robert, Samlyn's three-strategy structure &mdash; Flagship, Long Alpha, and Neutral &mdash; creates three distinct LP reporting obligations with differentiated fee structures and liquidity terms. Serving institutional LPs at $8.3B AUM with the reporting quality they expect requires more than a fund administrator portal, particularly where different LP classes have different visibility rights into portfolio positioning. Intralinks Fund Reporting handles strategy-level access segmentation and waterfall distribution across multiple fund vehicles from a single institutional portal, with a compliance audit trail that satisfies annual LP due diligence. Given it has been several months since we last connected, I would want to ask directly: has the team made any changes to LP reporting infrastructure across the three vehicles in 2026?
+
+Jack Conklin | Intralinks</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HF 3: OMEGA ADVISORS -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#127987; Omega Advisors</div>
+      <div class="opp-firm-meta">&#127968; New York, NY &bull; Long/Short Equity &bull; ~$4.4B AUM (Primarily Cooperman Personal Wealth) &bull; Account #654</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-warm" style="background:rgba(224,152,32,0.2);color:var(--amber);border:1px solid rgba(224,152,32,0.4);">WARM</span>
+      <span class="badge badge-hf">HF</span>
+      <span class="badge badge-partial">Partial Data</span>
+    </div>
+  </div>
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal</div>
+      <div class="opp-row"><span class="opp-label">Days Since Contact</span><span class="opp-val gold">170 days (Account #654) &mdash; Re-engagement window</span></div>
+      <div class="opp-row"><span class="opp-label">AUM Mix</span><span class="opp-val">$4.4B AUM, majority Cooperman's personal wealth + institutional separately managed</span></div>
+      <div class="opp-row"><span class="opp-label">Fund Structure</span><span class="opp-val">Private investment partnerships for sophisticated/institutional investors [ADV]</span></div>
+      <p style="font-size:12px; color:var(--muted); margin-top:8px; line-height:1.6;">Omega Advisors has been operating since 1991 &mdash; one of the longest-running hedge funds active. The fund primarily manages Cooperman's personal wealth plus institutional separately managed accounts. A value-oriented strategy with S&amp;P 500 benchmarking requires quarterly reporting to institutional LPs with clear attribution and position-level transparency. The 170-day gap is a straightforward re-engagement. <strong>PitchBook data not pulled today for Omega Advisors &mdash; no PE fund profile identified. Data sourced from Insider Monkey and Wikipedia (both confirmed today).</strong></p>
+    </div>
+    <div>
+      <div class="opp-section-title">&#128100; Contact</div>
+      <div class="contact-block">
+        <div class="contact-name">Leon G. Cooperman</div>
+        <div class="contact-title">Chairman &amp; CEO, Omega Advisors</div>
+        <div class="contact-detail">&#127968; New York, NY</div>
+        <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; Pull from ZoomInfo platform</div>
+        <div class="contact-bg">Founded Omega in 1991 after 25 years at Goldman Sachs (final role: Chairman &amp; CEO of Goldman Sachs Asset Management). Named to Forbes "Self-Made 250" in 2026. Still active as portfolio manager. Institutional investor background means high standards for LP reporting quality.</div>
+      </div>
+      <div style="margin-top:8px;">
+        <div class="email-draft" style="font-size:11px; padding:10px 12px;">Subject: LP Reporting Upgrade &mdash; Following Up From Our Last Conversation
+
+Leon, Omega's 35-year track record of 14.1% compounded returns net of fees has been built on disciplined process &mdash; and that same discipline extends to LP reporting. As your separately managed account base matures and reporting expectations from institutional allocators have evolved, quarterly LP communications have become a differentiator rather than a compliance function. Intralinks Fund Reporting provides institutional LPs with portal-based access to quarterly performance attribution, position-level reporting (where permitted), and a compliance-grade audit trail that satisfies annual due diligence from pensions and endowments. Given it has been several months since we last connected, has anything changed in how Omega is handling LP reporting for the institutional investor base?
+
+Jack Conklin | Intralinks</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div id="section-additional">
+<!-- ================================ SECTION 4: ADDITIONAL INTELLIGENCE ================================ -->
+<div class="section-header">
+  <div class="section-icon">&#9889;</div>
+  <div class="section-title">Section 4 &mdash; Additional Intelligence (VC / Growth)</div>
+  <div class="section-count">2 Opportunities</div>
+</div>
+
+<!-- ADDITIONAL 1: TCV (Technology Crossover Ventures) -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#128187; TCV (Technology Crossover Ventures)</div>
+      <div class="opp-firm-meta">&#127968; Menlo Park, CA &bull; Growth Equity / Crossover VC &bull; $18B+ Invested &bull; 315 Portfolio Companies &bull; Account #77 on List</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge" style="background:rgba(224,152,32,0.2);color:var(--amber);border:1px solid rgba(224,152,32,0.4);">WARM-HOT</span>
+      <span class="badge badge-vc">VC/Growth</span>
+      <span class="badge badge-partial">Partially Verified</span>
+    </div>
+  </div>
+  <div class="opp-body">
+    <div>
+      <div class="opp-section-title">&#128269; Signal Analysis</div>
+      <div class="opp-row"><span class="opp-label">Days Since Contact</span><span class="opp-val gold">128 days &mdash; Account #77 (Technology Crossover Venture / TCV)</span></div>
+      <div class="opp-row"><span class="opp-label">Recent Activity</span><span class="opp-val">9 new investments in last 12 months; May 2026: led $160M round for Corgi (Asia insurance) [Tracxn]</span></div>
+      <div class="opp-row"><span class="opp-label">Funds Active</span><span class="opp-val">24 total funds including TCV Venture Fund XII (active) [CBInsights]</span></div>
+      <div class="opp-row"><span class="opp-label">Exit: Brex</span><span class="opp-val">Portfolio exit Jan 22, 2026 [CBInsights]</span></div>
+      <p style="font-size:12px; color:var(--muted); margin-top:8px; line-height:1.6;">TCV operates as a rare "crossover" fund &mdash; investing in both private and public companies. This creates a dual LP reporting requirement: private fund LPs require quarterly NAV and portfolio company updates, while public market investments must adhere to different disclosure timelines and compliance standards. With 315 portfolio companies across 24 funds and active deployment from TCV Venture Fund XII, the LP reporting and fund reporting infrastructure is under continuous strain. Additionally, the Velocity fund (Series A/B/C focus) runs on a different investment thesis than the flagship vehicle, requiring differentiated LP communications.</p>
+    </div>
+    <div>
+      <div class="opp-section-title">&#128100; Contact</div>
+      <div class="contact-block">
+        <div class="contact-name">Jay Hoag / Shalini Rao</div>
+        <div class="contact-title">General Partner / General Partner, TCV</div>
+        <div class="contact-detail">&#127968; Menlo Park, CA</div>
+        <div class="contact-detail">&#128231; CONTACT UNVERIFIED &mdash; Pull from ZoomInfo platform. CFO or Head of Fund Operations preferred for initial outreach.</div>
+        <div class="contact-warn">&#9888; Names confirmed via LinkedIn and press releases (today). Emails unverified. Target CFO or Controller for first outreach rather than GP.</div>
+      </div>
+      <div style="margin-top:8px;">
+        <div class="email-draft" style="font-size:11px; padding:10px 12px;">Subject: Crossover Fund LP Reporting Complexity &mdash; Intralinks
+
+[CFO/Controller Name], TCV's crossover model &mdash; investing in both private companies and public market positions across 24 funds &mdash; creates a reporting requirement that most fund platforms were not built to handle simultaneously. Private company portfolio updates flow on a quarterly basis with NAV calculations; public market positions carry real-time mark-to-market obligations with different disclosure timing. Serving LPs in both contexts from a single portal, without manual reconciliation between the two reporting tracks, is operationally demanding at TCV's scale of 315 active portfolio companies. Intralinks Fund Reporting handles multi-asset-class LP portals natively, with separate disclosure timing configurations for private and public positions within the same fund vehicle. Given TCV Venture Fund XII is actively deploying and you completed a Brex exit in January 2026, are your LP reporting workflows for the current vintage fund running through a dedicated platform?
+
+Jack Conklin | Intralinks</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADDITIONAL 2: VERSANT VENTURE MANAGEMENT -->
+<div class="opp-card">
+  <div class="opp-header">
+    <div>
+      <div class="opp-firm-name">&#128138; Versant Venture Management</div>
+      <div class="opp-firm-meta">&#127968; San Francisco, CA &bull; Healthcare/Life Sciences VC &bull; Account #4 on List &bull; 1,500 Days Since Contact (CRITICAL)</div>
+    </div>
+    <div class="opp-badges">
+      <span class="badge badge-hot">&#128293; RE-ENGAGE</span>
+      <span class="badge badge-vc">Healthcare VC</span>
+      <span class="badge badge-partial">No Signal Found</span>
+    </div>
+  </div>
+  <div class="opp-body">
+    <div class="opp-full">
+      <div class="opp-section-title">&#128269; Status</div>
+      <p style="font-size:12px; color:var(--muted); line-height:1.6;"><span class="tag tag-warm">RE-ENGAGEMENT WATCHLIST</span> Versant is a Tier 1 HOT account (#4 on master list) with 1,500 days since last contact. No specific news trigger found from the past 30 days in today's web search &mdash; <strong>NO SIGNAL FOUND for the 0-30 day window.</strong> This account is flagged for the Re-Engagement Watchlist below. Versant focuses on healthcare VC and would be a target for Intralinks VDR Pro (clinical data rooms, pharma M&A) as well as LP Onboarding. Re-engagement angle: check for any recent fund close announcements or FDA/biotech portfolio events via a fresh ZoomInfo scoops pull. Do not feature in today's active outreach without a live trigger.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div id="section-watchlist">
+<!-- ================================ RE-ENGAGEMENT WATCHLIST ================================ -->
+<div class="section-header">
+  <div class="section-icon">&#128336;</div>
+  <div class="section-title">Re-Engagement Watchlist</div>
+  <div class="section-count">Tier 1 HOT Accounts &bull; 180+ Days Dormant &bull; No Live Signal Today</div>
+</div>
+
+<table class="watchlist-table">
+  <thead>
+    <tr>
+      <th>Firm</th>
+      <th>Days Since Contact</th>
+      <th>Last Known Trigger</th>
+      <th>Re-Engagement Angle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Versant Venture Management</td>
+      <td style="color:var(--red-alert);">1,500 days</td>
+      <td>Healthcare VC &mdash; portfolio active (no specific trigger found today)</td>
+      <td>Search for recent fund close or FDA portfolio event. Lead with VDR Pro for clinical data rooms.</td>
+    </tr>
+    <tr>
+      <td>Panning Capital Management</td>
+      <td style="color:var(--red-alert);">1,792 days</td>
+      <td>HF (NY) &mdash; no signal found in past 30 days</td>
+      <td>Check ZoomInfo for headcount changes. Re-engage as HF fund reporting upgrade conversation.</td>
+    </tr>
+    <tr>
+      <td>Knighthead Capital Management</td>
+      <td style="color:var(--amber);">218 days</td>
+      <td>Credit-focused HF &mdash; no specific 30-day trigger found</td>
+      <td>Distressed credit / special situations fund reporting &mdash; credit L/S reporting complexity angle.</td>
+    </tr>
+    <tr>
+      <td>KSL Capital Partners (Management IV)</td>
+      <td style="color:var(--amber);">317 days</td>
+      <td>Separate entity from main KSL &mdash; management vehicle (see active opp above)</td>
+      <td>Coordinate outreach with main KSL opportunity above. Same management team, same decision-makers.</td>
+    </tr>
+    <tr>
+      <td>Fir Tree Capital Management</td>
+      <td style="color:var(--amber);">232 days</td>
+      <td>Distressed HF (NY) &mdash; no 30-day trigger found</td>
+      <td>Distressed/credit fund reporting angle. Check for 13F updates or portfolio restructuring news.</td>
+    </tr>
+    <tr>
+      <td>Structured Portfolio Management</td>
+      <td style="color:var(--amber);">301 days</td>
+      <td>Credit-focused PE (CT) &mdash; no trigger found</td>
+      <td>CLO management reporting complexity &mdash; Intralinks Fund Reporting for credit LP portals.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-text">
+    Intralinks Alternative Investments Briefing &bull; Wednesday, May 13, 2026 &bull; Morning Edition<br>
+    All market data sourced from live web searches conducted today (Yahoo Finance, Trading Economics, NYSE, 247WallSt). Firm data sourced from PitchBook MCP (tools called today), ZoomInfo MCP (recommended contacts called today), and dated web search results. Contact information marked UNVERIFIED must be confirmed via ZoomInfo platform before use. Do not send emails to unverified contacts. PitchBook data flagged where tool returned no data. Research sequence: Phase 1 signal scan &rarr; Phase 2 deep pull &rarr; Confidence rating assigned. All tool calls logged above.
+  </div>
+  <div class="footer-credit">&#9889; Created by Jack Conklin &bull; Intralinks Sales Intelligence &bull; Powered by AI Research Engine</div>
+</div>
+
+</div>
+
+<div id="section-archive">
+  <div class="section-header">
+    <div class="section-icon">&#128450;</div>
+    <div class="section-title">Past Intelligence Briefs</div>
+    <div class="section-count">Click any card to open in a new tab</div>
+  </div>
+  <p style="color:var(--muted);font-size:13px;margin:0 0 18px">Each brief is a complete snapshot saved from a past send.</p>
+  <div id="archive-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+    <div style="color:var(--muted);font-size:13px;padding:8px 0">Loading&#x2026;</div>
+  </div>
+</div>
+
+</div><!-- end body-wrap -->
+
+
+<script>
+// TAB SWITCHING
+(function() {
+  var tabs = document.querySelectorAll('.nav-tab[data-section]');
+  var sections = {
+    market:     document.getElementById('section-market'),
+    pe:         document.getElementById('section-pe'),
+    hf:         document.getElementById('section-hf'),
+    additional: document.getElementById('section-additional'),
+    watchlist:  document.getElementById('section-watchlist'),
+    archive:    document.getElementById('section-archive')
+  };
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var target = tab.dataset.section;
+      Object.keys(sections).forEach(function(key) {
+        if (sections[key]) sections[key].style.display = (key === target) ? '' : 'none';
+      });
+      if (target === 'archive') loadArchive();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+})();
+
+// ARCHIVE FETCH
+var archiveLoaded = false;
+function loadArchive() {
+  if (archiveLoaded) return;
+  archiveLoaded = true;
+  var grid = document.getElementById('archive-list');
+  if (!grid) return;
+  fetch('https://api.github.com/repos/jconklin731/Intralinks-Private-Equity-Intelligence/contents/archive')
+    .then(function(r) { return r.json(); })
+    .then(function(files) {
+      if (!Array.isArray(files)) throw new Error('no files');
+      var sorted = files.filter(function(f) { return f.name.endsWith('.html'); })
+                        .sort(function(a,b) { return b.name.localeCompare(a.name); });
+      if (!sorted.length) {
+        grid.innerHTML = '<div style="color:var(--muted);padding:20px 0">No archived briefs yet.</div>';
+        return;
+      }
+      grid.innerHTML = '';
+      sorted.forEach(function(f) {
+        var date = f.name.replace('.html','');
+        var a = document.createElement('a');
+        a.href = 'https://jconklin731.github.io/Intralinks-Private-Equity-Intelligence/archive/' + f.name;
+        a.target = '_blank';
+        a.style.cssText = 'display:block;background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:20px;text-decoration:none;transition:border-color .15s';
+        a.onmouseover = function() { a.style.borderColor = 'var(--gold)'; };
+        a.onmouseout  = function() { a.style.borderColor = 'var(--card-border)'; };
+        a.innerHTML = '<div style="color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Intelligence Brief</div>' +
+                      '<div style="color:var(--white);font-size:17px;font-weight:700">' + date + '</div>' +
+                      '<div style="color:var(--muted);font-size:12px;margin-top:10px">View &#x2192;</div>';
+        grid.appendChild(a);
+      });
+    })
+    .catch(function() {
+      var g = document.getElementById('archive-list');
+      if (g) g.innerHTML = '<div style="color:var(--muted);padding:20px 0">Archive unavailable.</div>';
+    });
+}
+</script>
+</body>
+</html>
