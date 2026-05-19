@@ -779,6 +779,9 @@
   <button class="tab-btn" onclick="switchTab('tab-macro', this)">
     <span class="tab-num">&#9685;</span>Macro &amp; Compliance
   </button>
+  <button class="tab-btn" onclick="switchTab('tab-archive', this)">
+    <span class="tab-num">📁</span>Archive
+  </button>
 </nav>
 
 <div class="main">
@@ -1922,21 +1925,36 @@ Intralinks</div>
 
 </div><!-- /tab-macro -->
 
-</div><!-- /main -->
-
-<!-- ARCHIVE -->
-<div style="max-width:900px;margin:32px auto 0;padding:0 24px;">
-  <div style="background:#0c1a2e;border:1px solid rgba(201,168,76,0.18);border-radius:10px;padding:20px 24px;">
-    <div style="font-family:'DM Serif Display',serif;font-size:16px;color:#c9a84c;margin-bottom:14px;">📁 Briefing Archive</div>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;">
-      <a href="archive/2026-05-19.html" style="display:inline-block;background:#0f2038;border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:7px 14px;font-size:12px;color:#d8eaf8;text-decoration:none;font-family:monospace;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">May 19, 2026 &mdash; Tuesday (AI)</a>
-      <a href="archive/2026-05-18.html" style="display:inline-block;background:#0f2038;border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:7px 14px;font-size:12px;color:#d8eaf8;text-decoration:none;font-family:monospace;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">May 18, 2026 &mdash; Monday</a>
-      <a href="archive/2026-05-15.html" style="display:inline-block;background:#0f2038;border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:7px 14px;font-size:12px;color:#d8eaf8;text-decoration:none;font-family:monospace;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">May 15, 2026 &mdash; Friday</a>
-      <a href="archive/2026-05-13.html" style="display:inline-block;background:#0f2038;border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:7px 14px;font-size:12px;color:#d8eaf8;text-decoration:none;font-family:monospace;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">May 13, 2026 &mdash; Wednesday</a>
-      <a href="archive/2026-05-12.html" style="display:inline-block;background:#0f2038;border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:7px 14px;font-size:12px;color:#d8eaf8;text-decoration:none;font-family:monospace;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">May 12, 2026 &mdash; Tuesday</a>
+<div class="tab-panel" id="tab-archive">
+  <div style="padding:24px 0;">
+    <div style="font-family:'DM Serif Display',serif;font-size:20px;color:#c9a84c;margin-bottom:6px;">📁 Briefing Archive</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:20px;">All previous editions — click to open</div>
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:480px;">
+      <a href="archive/2026-05-19.html" style="display:flex;align-items:center;justify-content:space-between;background:#0c1a2e;border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:14px 18px;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">
+        <span style="font-size:14px;color:#d8eaf8;font-weight:600;">May 19, 2026</span>
+        <span style="font-size:11px;color:#7fa3c0;">Tuesday &mdash; AI Edition</span>
+      </a>
+      <a href="archive/2026-05-18.html" style="display:flex;align-items:center;justify-content:space-between;background:#0c1a2e;border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:14px 18px;text-decoration:none;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">
+        <span style="font-size:14px;color:#d8eaf8;font-weight:600;">May 18, 2026</span>
+        <span style="font-size:11px;color:#7fa3c0;">Monday</span>
+      </a>
+      <a href="archive/2026-05-15.html" style="display:flex;align-items:center;justify-content:space-between;background:#0c1a2e;border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:14px 18px;text-decoration:none;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">
+        <span style="font-size:14px;color:#d8eaf8;font-weight:600;">May 15, 2026</span>
+        <span style="font-size:11px;color:#7fa3c0;">Friday</span>
+      </a>
+      <a href="archive/2026-05-13.html" style="display:flex;align-items:center;justify-content:space-between;background:#0c1a2e;border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:14px 18px;text-decoration:none;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">
+        <span style="font-size:14px;color:#d8eaf8;font-weight:600;">May 13, 2026</span>
+        <span style="font-size:11px;color:#7fa3c0;">Wednesday</span>
+      </a>
+      <a href="archive/2026-05-12.html" style="display:flex;align-items:center;justify-content:space-between;background:#0c1a2e;border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:14px 18px;text-decoration:none;" onmouseover="this.style.borderColor='#c9a84c'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'">
+        <span style="font-size:14px;color:#d8eaf8;font-weight:600;">May 12, 2026</span>
+        <span style="font-size:11px;color:#7fa3c0;">Tuesday</span>
+      </a>
     </div>
   </div>
-</div>
+</div><!-- /tab-archive -->
+
+</div><!-- /main -->
 
 <!-- FOOTER -->
 <footer>
