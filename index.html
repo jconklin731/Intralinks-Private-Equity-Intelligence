@@ -1,102 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Intralinks Alternative Investments Briefing &middot; June 24, 2026</title>
 <style>
-  :root{
-    --bg:#07111f; --panel:#0c1a2e; --panel2:#0f2138; --panel3:#11263f;
-    --line:#1d3550; --text:#d8eaf8; --muted:#7fa3c0; --muted2:#5f86a6;
-    --gold:#c9a84c; --gold2:#e0c570; --green:#3fb27f; --amber:#e0a23c;
-    --red:#e0625c; --blue:#5aa0d6;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55;font-size:15px;-webkit-font-smoothing:antialiased;}
-  a{color:var(--blue);text-decoration:none;}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px;}
-  .nav{position:sticky;top:0;z-index:50;background:rgba(7,17,31,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  .nav-inner{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;}
-  .nav-logo{width:26px;height:26px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#07111f;font-size:13px;}
-  .nav a{color:var(--muted);font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;}
-  .nav a:hover{color:var(--gold2);}
-  header.head{padding:34px 0 18px;border-bottom:1px solid var(--line);position:relative;}
-  .ts{position:absolute;top:34px;right:0;text-align:right;font-size:12px;color:var(--muted);line-height:1.5;}
-  .brandrow{display:flex;align-items:center;gap:14px;margin-bottom:10px;}
-  .brandlogo{width:46px;height:46px;background:var(--gold);border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#07111f;font-size:20px;}
-  h1{font-size:25px;font-weight:800;letter-spacing:-.01em;color:#eaf4ff;}
-  .sub{color:var(--muted);font-size:13.5px;margin-top:3px;}
-  .byline{color:var(--muted2);font-size:11.5px;margin-top:9px;}
-  .banner{border-radius:10px;padding:13px 16px;margin:16px 0;font-size:13.5px;border:1px solid;}
-  .banner b{color:#eaf4ff;}
-  .banner.amber{background:rgba(224,162,60,0.08);border-color:#5a4422;color:#e8c98f;}
-  .banner.gold{background:rgba(201,168,76,0.07);border-color:#4d4226;color:#dcc78f;}
-  .sec{margin-top:38px;}
-  .sec-h{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:18px;flex-wrap:wrap;}
-  .sec-h h2{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
-  .sec-h .cnt{font-size:12px;color:var(--muted2);font-weight:600;}
-  .pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
-  .tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 14px;}
-  .tile .lab{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
-  .tile .val{font-size:19px;font-weight:800;color:#eaf4ff;margin-top:5px;}
-  .tile .chg{font-size:12.5px;font-weight:700;margin-top:2px;}
-  .dn{color:var(--red);} .up{color:var(--green);} .fl{color:var(--muted);}
-  .pulse-note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:14px 16px;margin-top:14px;font-size:13.5px;color:var(--text);}
-  .pulse-note p{margin-bottom:9px;} .pulse-note p:last-child{margin-bottom:0;}
-  .pulse-note .src{color:var(--muted2);font-size:11.5px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:13px;margin-bottom:22px;overflow:hidden;}
-  .card-top{padding:18px 20px 14px;background:var(--panel2);border-bottom:1px solid var(--line);}
-  .card-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-  .card-name h3{font-size:18px;font-weight:800;color:#eaf4ff;}
-  .badge{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;border:1px solid;}
-  .b-warm{color:#e8c98f;border-color:#5a4422;background:rgba(224,162,60,0.10);}
-  .b-tier{color:var(--muted);border-color:var(--line);background:transparent;}
-  .b-pv{color:#cdd9a8;border-color:#4a5a2a;background:rgba(120,160,60,0.10);}
-  .b-gem{color:#8fd6ff;border-color:#2a5a6a;background:rgba(60,160,224,0.12);}
-  .b-warmamber{color:#dcc78f;border-color:#5a4a22;background:rgba(200,160,60,0.10);}
-  .card-meta{color:var(--muted);font-size:12.5px;margin-top:7px;}
-  .card-body{padding:18px 20px;}
-  .row{margin-bottom:15px;} .row:last-child{margin-bottom:0;}
-  .row .k{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
-  .row .v{font-size:13.5px;color:var(--text);}
-  .row .v b{color:#eaf4ff;}
-  .src2{color:var(--muted2);font-size:11.5px;}
-  ul.tight{list-style:none;}
-  ul.tight li{padding:3px 0 3px 16px;position:relative;font-size:13.5px;}
-  ul.tight li:before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:10px;top:6px;}
-  .clock{border-left:2px solid var(--line);margin-left:6px;padding-left:16px;}
-  .clk{position:relative;padding:5px 0;}
-  .clk:before{content:"";position:absolute;left:-21px;top:11px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);}
-  .clk .d{font-size:12px;font-weight:800;color:var(--gold2);}
-  .clk .t{font-size:13px;color:var(--text);}
-  .clk .s{font-size:11px;color:var(--muted2);}
-  .contact{background:var(--panel3);border:1px solid var(--line);border-radius:9px;padding:13px 15px;font-size:13px;}
-  .unv{color:var(--amber);font-weight:700;}
-  .mailbtn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#07111f;border:none;font-weight:800;font-size:13px;padding:9px 16px;border-radius:8px;cursor:pointer;letter-spacing:.02em;}
-  .mailbtn:hover{background:var(--gold2);}
-  .mailwrap{display:none;margin-top:14px;}
-  .mailwrap.open{display:block;}
-  .email{background:#0a1726;border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:13.5px;line-height:1.62;color:#dbe9f6;}
-  .email .eh{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:11px;}
-  .email .eh span{color:var(--text);text-transform:none;letter-spacing:0;}
-  .email p{margin-bottom:10px;} .email p:last-child{margin-bottom:0;}
-  .email .cta{color:#eaf4ff;font-weight:700;}
-  .held{background:var(--panel);border:1px dashed var(--line);border-radius:11px;padding:18px 20px;font-size:13.5px;color:var(--text);}
-  .held .ht{font-weight:800;color:#eaf4ff;margin-bottom:8px;font-size:14px;}
-  .held ul{list-style:none;margin-top:8px;}
-  .held li{padding:4px 0 4px 16px;position:relative;color:var(--muted);font-size:13px;}
-  .held li:before{content:"\203A";position:absolute;left:0;color:var(--gold);font-weight:700;}
-  table.wl{width:100%;border-collapse:collapse;font-size:12.8px;}
-  table.wl th{text-align:left;color:var(--gold);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;padding:9px 10px;border-bottom:1px solid var(--line);}
-  table.wl td{padding:11px 10px;border-bottom:1px solid var(--line);color:var(--text);vertical-align:top;}
-  table.wl tr:last-child td{border-bottom:none;}
-  table.wl td .fn{font-weight:700;color:#eaf4ff;}
-  table.wl td .dsc{color:var(--amber);font-weight:700;}
-  .wl-wrap{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:6px 14px;overflow-x:auto;}
-  footer{margin-top:46px;border-top:1px solid var(--line);padding-top:20px;font-size:11.5px;color:var(--muted2);line-height:1.7;}
-  footer b{color:var(--muted);}
-  .flag{color:var(--amber);font-weight:700;}
-  @media(max-width:620px){.ts{position:static;text-align:left;margin-bottom:10px;}h1{font-size:21px;}}
+:root{
+  --bg:#07111f; --panel:#0d1c30; --panel2:#11243d; --card:#0f2138;
+  --border:#1d3551; --gold:#c9a84c; --gold2:#e3c878; --goldmute:#9c8540;
+  --text:#d8eaf8; --muted:#7fa3c0; --dim:#5f86a4;
+  --green:#43c59e; --amber:#e3b341; --red:#e06c6c; --blue:#5aa6e0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55;font-size:15px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 60px}
+a{color:var(--gold2);text-decoration:none}
+/* ticker */
+.ticker{background:#050d18;border-bottom:1px solid var(--border);overflow:hidden;white-space:nowrap;font-size:12.5px;color:var(--muted);padding:7px 0}
+.ticker b{color:var(--text)}
+.up{color:var(--green)} .down{color:var(--red)}
+.tk-track{display:inline-block;animation:tk 38s linear infinite;padding-left:100%}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+/* header */
+header.hd{padding:26px 0 18px;border-bottom:2px solid var(--border);position:relative}
+.hd .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:center;gap:13px}
+.mark{width:46px;height:46px;border-radius:11px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;color:#07111f;font-size:20px;letter-spacing:-1px}
+.logo h1{font-size:20px;font-weight:800;letter-spacing:.2px}
+.logo .sub{font-size:12px;color:var(--muted);font-weight:600;margin-top:1px}
+.stamp{text-align:right;font-size:12px;color:var(--muted)}
+.stamp b{color:var(--gold2);font-size:13px}
+.byline{font-size:11px;color:var(--dim);margin-top:5px}
+/* nav */
+nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+nav.jump a{font-size:12px;font-weight:700;background:var(--panel);border:1px solid var(--border);padding:6px 12px;border-radius:20px;color:var(--text)}
+nav.jump a:hover{border-color:var(--gold);color:var(--gold2)}
+/* banners */
+.banner{border-radius:10px;padding:13px 16px;margin:14px 0;font-size:13.5px;border:1px solid var(--border)}
+.b-amber{background:rgba(227,179,65,.08);border-color:#5c4a1e}
+.b-gold{background:rgba(201,168,76,.07);border-color:var(--goldmute)}
+.b-info{background:rgba(90,166,224,.07);border-color:#23496e}
+.banner b{color:var(--text)}
+/* section */
+h2.sec{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:34px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.sec-note{font-size:12.5px;color:var(--muted);margin-bottom:16px}
+/* market pulse */
+.pulse{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.tile{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 13px}
+.tile .lbl{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.tile .val{font-size:19px;font-weight:800;margin-top:3px}
+.tile .chg{font-size:12.5px;font-weight:700;margin-top:1px}
+.macro{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:15px 17px;font-size:13.5px;margin-top:4px}
+.macro li{margin:7px 0 7px 18px}
+.macro b{color:var(--gold2)}
+/* firm card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:13px;margin:18px 0;overflow:hidden}
+.card .chead{padding:16px 18px;border-bottom:1px solid var(--border);background:var(--panel2)}
+.crow{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cname{font-size:18px;font-weight:800;color:#fff}
+.cmeta{font-size:12px;color:var(--muted);margin-top:3px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.bdg{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:20px;letter-spacing:.3px;text-transform:uppercase}
+.bd-hot{background:rgba(224,108,108,.16);color:#f0a0a0;border:1px solid #5c2b2b}
+.bd-warm{background:rgba(227,179,65,.14);color:var(--gold2);border:1px solid #5c4a1e}
+.bd-gem{background:rgba(67,197,158,.14);color:#7fe0c4;border:1px solid #1f5c49}
+.bd-tier{background:rgba(90,166,224,.12);color:#8fc4ee;border:1px solid #23496e}
+.bd-ver{background:rgba(67,197,158,.12);color:#7fe0c4;border:1px solid #1f5c49}
+.bd-part{background:rgba(227,179,65,.12);color:var(--gold2);border:1px solid #5c4a1e}
+.cbody{padding:16px 18px}
+.blk{margin:14px 0}
+.blk h4{font-size:11.5px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.blk p{font-size:13.5px;margin:5px 0}
+.blk ul{margin:5px 0 5px 20px}
+.blk li{font-size:13.5px;margin:5px 0}
+.src{color:var(--dim);font-size:11.5px}
+/* deal clock */
+.clock{border-left:2px solid var(--goldmute);margin:8px 0 8px 6px;padding-left:0}
+.ev{position:relative;padding:6px 0 6px 20px;font-size:13px}
+.ev:before{content:"";position:absolute;left:-5px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.ev .d{font-weight:800;color:var(--gold2)}
+.ev .s{color:var(--dim);font-size:11px}
+/* contact */
+.contact{background:var(--panel);border:1px solid var(--border);border-radius:9px;padding:11px 14px;font-size:13px;margin:6px 0}
+.contact .nm{font-weight:800;color:#fff;font-size:14px}
+.unv{color:var(--amber);font-weight:800;font-size:11px;letter-spacing:.3px}
+/* email */
+.mailtoggle{cursor:pointer;background:var(--gold);color:#07111f;font-weight:800;font-size:12.5px;padding:9px 15px;border-radius:8px;border:none;display:inline-flex;align-items:center;gap:7px;margin-top:6px}
+.mailtoggle:hover{background:var(--gold2)}
+.mail{display:none;background:#0a1626;border:1px solid var(--border);border-radius:10px;padding:15px 17px;margin-top:11px;font-size:13.5px;line-height:1.6}
+.mail.open{display:block}
+.mail .ml{color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.mail .subj{font-weight:800;color:#fff;margin:2px 0 10px}
+.mail p{margin:9px 0}
+/* objections */
+.obj{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:10px 13px;margin:7px 0;font-size:13px}
+.obj .q{font-weight:800;color:var(--gold2)}
+.obj .a{color:var(--text);margin-top:3px}
+/* watchlist */
+table.wl{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+table.wl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--border)}
+table.wl td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+table.wl .days{font-weight:800;color:var(--amber)}
+/* footer */
+.footer{margin-top:40px;padding-top:18px;border-top:2px solid var(--border);font-size:12px;color:var(--muted)}
+.footer b{color:var(--gold2)}
+.disc{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.6}
+.hold{background:var(--panel);border:1px dashed var(--goldmute);border-radius:10px;padding:15px 17px;font-size:13.5px;color:var(--muted)}
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBK2WTEJJE"></script>
@@ -106,504 +113,478 @@
   gtag('js', new Date());
   gtag('config', 'G-JBK2WTEJJE');
 </script>
-</head>
-<body>
-
-<div class="nav">
-  <div class="nav-inner">
-    <div class="nav-logo">IL</div>
+</head><body>
+<div class="ticker"><div class="tk-track"><b>S&amp;P 500</b> 7,358.22 <span class="down">-0.10%</span> &nbsp;&bull;&nbsp; <b>Nasdaq</b> 25,476.64 <span class="down">-0.43%</span> &nbsp;&bull;&nbsp; <b>Dow</b> 51,848.90 <span class="up">+0.35%</span> &nbsp;&bull;&nbsp; <b>Russell 2000</b> 2,986.63 <span class="up">+0.37%</span> &nbsp;&bull;&nbsp; <b>10Y</b> ~4.40% <span class="up">lower</span> &nbsp;&bull;&nbsp; <b>WTI</b> $70.34 <span class="down">-3.92%</span> &nbsp;&bull;&nbsp; <b>Brent</b> $73.74 <span class="down">-4.33%</span> &nbsp;&bull;&nbsp; <b>Gold</b> ~$3,987 <span class="down">below $4K</span> &nbsp;&bull;&nbsp; <b>Alts managers</b> <span class="down">sold off on private-credit / CRE stress</span> &nbsp;&bull;&nbsp; <b>S&amp;P 500</b> 7,358.22 <span class="down">-0.10%</span> &nbsp;&bull;&nbsp; <b>Nasdaq</b> 25,476.64 <span class="down">-0.43%</span> &nbsp;&bull;&nbsp; <b>Dow</b> 51,848.90 <span class="up">+0.35%</span> &nbsp;&bull;&nbsp; <b>Russell 2000</b> 2,986.63 <span class="up">+0.37%</span> &nbsp;&bull;&nbsp; <b>10Y</b> ~4.40% <span class="up">lower</span> &nbsp;&bull;&nbsp; <b>WTI</b> $70.34 <span class="down">-3.92%</span> &nbsp;&bull;&nbsp; <b>Brent</b> $73.74 <span class="down">-4.33%</span> &nbsp;&bull;&nbsp; <b>Gold</b> ~$3,987 <span class="down">below $4K</span> &nbsp;&bull;&nbsp; <b>Alts managers</b> <span class="down">sold off on private-credit / CRE stress</span></div></div>
+<div class="wrap">
+<header class="hd">
+  <div class="top">
+    <div class="logo"><div class="mark">IL</div>
+      <div><h1>Intralinks Alternative Investments Briefing</h1>
+      <div class="sub">Sales Intelligence &middot; PE &bull; Hedge Funds &bull; Private Markets</div></div></div>
+    <div class="stamp"><b>Wednesday, June 24, 2026</b><br>Edition #110 &middot; 5:30 PM ET<br>
+      <span class="byline">Created by Jack Conklin</span></div>
+  </div>
+  <nav class="jump">
     <a href="#pulse">Market Pulse</a>
     <a href="#pe">PE Intelligence</a>
-    <a href="#hf">Hedge Fund</a>
-    <a href="#addl">Additional</a>
-    <a href="#watch">Re-Engagement</a>
+    <a href="#hf">Hedge Fund Intelligence</a>
+    <a href="#addl">Additional Intelligence</a>
+    <a href="#watch">Re-Engagement Watchlist</a>
     <a href="#archive">&#128193; Archive</a>
-  </div>
+  </nav>
+</header>
+
+<div class="banner b-amber"><b>&#9888; Tool status: ZoomInfo session unavailable.</b>
+ZoomInfo returned "No approval received" on every call this run, a session-level authorization failure, not a query issue.
+Per protocol, every contact below is flagged <b>CONTACT UNVERIFIED</b>. The named contacts shown are PitchBook primary or team-member records
+(real, sourced), but the AE must pull the email and confirm the seat natively in ZoomInfo before sending.
+<b>PitchBook was fully operational</b> this session, so all firm-level facts, AUM, fund, deal, and exit data below are PitchBook-verified
+and cross-checked against dated press releases.</div>
+
+<div class="banner b-gold"><b>&#128202; Coverage and selection.</b>
+Theme today, per request: fresh fund-launch plans and M&amp;A exits surfaced on PitchBook news. Today's brief delivers
+<b>3 PE opportunities</b> (target 6), <b>1 Hedge Fund opportunity</b> (target 3), and <b>1 Additional Intelligence</b> (target 2).
+Count is reduced, not padded. The strict no-repeat rule removed this week's loudest on-theme names already featured
+(Clearlake, Crescent, Energy Capital, Kayne Anderson Real Estate, StepStone, H.I.G., Sun Capital, Diameter, and others).
+The freshest June fund launches and continuation closes that are <b>not on the master account list</b> (Abry Partners, Simon Quick,
+DayMark, Realize Capital, Man MOC co-investors) cannot be featured. Every featured firm cleared Phase 1 and Phase 2 with a dated, sourced trigger.</div>
+
+<h2 class="sec" id="pulse">&#128200; 1. Market Pulse &middot; June 24, 2026 Close</h2>
+<div class="sec-note">U.S. markets closed for the day. Index, rate, and commodity figures are the official June 24 close pulled live. Source notes inline.</div>
+<div class="pulse">
+  <div class="tile"><div class="lbl">S&amp;P 500</div><div class="val">7,358.22</div><div class="chg down">-0.10%</div></div>
+  <div class="tile"><div class="lbl">Nasdaq Comp</div><div class="val">25,476.64</div><div class="chg down">-0.43%</div></div>
+  <div class="tile"><div class="lbl">Dow Jones</div><div class="val">51,848.90</div><div class="chg up">+0.35% (+182)</div></div>
+  <div class="tile"><div class="lbl">Russell 2000</div><div class="val">2,986.63</div><div class="chg up">+0.37%</div></div>
+  <div class="tile"><div class="lbl">10Y Treasury</div><div class="val">~4.40%</div><div class="chg up">fell below 4.5%</div></div>
+  <div class="tile"><div class="lbl">WTI Crude</div><div class="val">$70.34</div><div class="chg down">-3.92%</div></div>
+  <div class="tile"><div class="lbl">Brent Crude</div><div class="val">$73.74</div><div class="chg down">-4.33%</div></div>
+  <div class="tile"><div class="lbl">Gold (Aug)</div><div class="val">~$3,987</div><div class="chg down">below $4K, 1st in ~7mo</div></div>
+</div>
+<div class="macro">
+<ul>
+<li><b>Equities mixed, tech the drag.</b> The Dow rose 182 points to a record-area 51,848.90 while the Nasdaq slipped 0.43% and the S&amp;P eased 0.10% ahead of Micron's after-hours print, which beat and raised and lifted chips in late trade. <span class="src">(CNBC, TheStreet, June 24)</span></li>
+<li><b>PE-manager stocks sold off hard on private-credit and CRE stress.</b> Blackstone fell roughly 6% on the day after a $343M loan on a Chicago tower (One South Wacker, via Blackstone Mortgage Trust) entered default and BCRED capped quarterly redemptions at 5%; the broader alts group (KKR, Apollo, Ares, Carlyle, Blue Owl) traded lower in sympathy. <span class="src">(TradingKey, CNBC, June 24)</span> <b>Individual closing prints for the PE managers conflicted across sources and banned intraday feeds, so per protocol the exact closes are withheld and only the dated direction and catalyst are published.</b></li>
+<li><b>Rates and oil lower.</b> The 10Y yield fell below 4.5% to roughly 4.40% as WTI dropped 3.9% to $70.34 and Brent fell 4.3% to $73.74, the lowest since before the late-February Iran airstrikes. Gold broke below $4,000 for the first time in about seven months. <span class="src">(CNBC, June 24)</span></li>
+<li><b>Fed.</b> One week after Chair Kevin Warsh's first meeting, he has stood up five policy task forces and dropped forward-guidance language; Senator Warren described him on CNBC as "boxed in" between tariff-driven inflation and growth. <span class="src">(CNBC, June 24)</span></li>
+<li><b>Why it matters for coverage:</b> the private-credit and CRE redemption theme (Partners Group, Cliffwater, BCRED caps, the Blackstone CRE default) is the dominant alts storyline and pushes credit-heavy managers toward tighter LP communication and cleaner investor servicing, which is our wedge. At the same time, falling rates and a firmer exit backdrop are nudging realization activity back on, exactly what the secondaries and continuation-fund stories below reflect.</li>
+</ul>
 </div>
 
-<div class="wrap">
+<h2 class="sec" id="pe">&#127970; 2. Private Equity Intelligence</h2>
+<div class="sec-note">Three featured PE firms, each with a dated fund-launch or exit trigger from today's PitchBook pulls. Lead is the largest, most time-sensitive realization signal; the two mid-market names are the hidden gems.</div>
 
-  <header class="head">
-    <div class="ts">Wednesday, June 24, 2026<br>Pre-market &middot; Edition #109<br>Data: June 23 close</div>
-    <div class="brandrow">
-      <div class="brandlogo">IL</div>
-      <div>
-        <h1>Intralinks Alternative Investments Briefing</h1>
-        <div class="sub">Daily sales intelligence &middot; Private Equity &middot; Hedge Funds &middot; Alternative Asset Managers</div>
-      </div>
-    </div>
-    <div class="byline">Created by Jack Conklin &middot; Alternative Investments Coverage</div>
-  </header>
+<div class="card">
+ <div class="chead"><div class="crow">
+  <div><div class="cname">Neuberger Berman Group LLC</div>
+   <div class="cmeta">New York, NY &bull; Asset Manager / PE Secondaries &bull; AUM $567B &bull; Dry powder $21.7B &bull; PBID 14768-38</div></div>
+  <div class="badges">
+   <span class="bdg bd-hot">&#128293; Hot Signal</span>
+   <span class="bdg bd-tier">Tier 3 Cold</span>
+   <span class="bdg bd-ver">&#9989; Fully Verified (PitchBook)</span>
+  </div>
+ </div></div>
+ <div class="cbody">
 
-  <div class="banner amber">
-    <b>&#9888; Tool status: PitchBook live this session &middot; ZoomInfo unavailable.</b> PitchBook returned full profile, deal, fund, and AUM data on every firm below, so fund sizes, dry powder, deal velocity, and fund-close dates are <b>PitchBook-verified</b> and dated inline. ZoomInfo still returned "No approval received," so no email or accuracy score could be pulled from it. Where a named contact appears below it is the <b>PitchBook primary contact</b> (sourced today), not a ZoomInfo pull. The ideal finance, fund-controller, or IR seat is still flagged <b>CONTACT UNVERIFIED</b>: AEs should pull that seat natively in ZoomInfo (try companyWebsite) to confirm title, email, and accuracy score before sending.
+  <div class="blk"><h4>&#9889; The Signal (Lead Story)</h4>
+   <p>This morning NBPE, Neuberger's FTSE 250-listed private equity vehicle, announced two realizations from its top-six positions agreed in May: the sale of <b>FDH Aero</b> (aerospace and defense logistics) and a <b>partial realization of Osaic via a continuation vehicle</b> (a $15M 2019 cost basis returning $27M total). The pair lifts NBPE's <b>year-to-date realizations to $144M</b>. <span class="src">(NB Private Equity Partners / GlobeNewswire, June 24, 2026)</span></p>
+   <p>Nine days earlier, <b>Neuberger Private Markets co-led Abry Partners' $780M oversubscribed single-asset continuation fund for Centauri Health Solutions</b> alongside Apollo S3. <span class="src">(Abry Partners / William Blair, June 15, 2026)</span> PitchBook flags Neuberger as <b>"most likely fundraising," an active buyer of secondary commitments, with 5 funds closed in the last 12 months and 84 total exits.</b> <span class="src">(PitchBook profile, updated June 24, 2026)</span></p>
   </div>
 
-  <div class="banner gold">
-    <b>&#128202; Coverage: 2 PE + 1 hedge fund featured on PitchBook-verified signal.</b> Today's brief delivers <b>2 PE opportunities</b> (target 6), <b>1 hedge fund opportunity</b> (target 3), and <b>0 Additional Intelligence</b> (target 2). With PitchBook live this run, two on-list firms that the web-only scan had logged NO SIGNAL turned out to be actively deploying and most-likely-fundraising per PitchBook: <b>H.I.G. Capital</b> (last deal June 10) and <b>Sun Capital Partners</b> (last deal June 16, inside the window), the latter a genuine hidden gem (Tier 3 Cold, dormant 1,295 days, quietly running 13 deals in 6 months). The hedge fund seat is filled by <b>Diameter Capital</b>, a $26.3B credit manager with 22 open funds and a $4.5B fund now deploying; its catalyst date is disclosed honestly below as a fundraising-cycle signal, not a 7-day trigger. Additional Intelligence stays held: the freshest VC and RIA deals this run sit off the master account list, and the on-list asset managers checked (Victory Capital, Calamos) showed no dated buying trigger. The no-repeat rule still excludes prior-featured on-list closers (Clearlake, Crescent, Future Standard, Court Square, Guggenheim, Truelink).
+  <div class="blk"><h4>&#128176; The Commercial Read</h4>
+   <p>Neuberger is running both sides of the secondaries market at once: selling down direct positions through continuation vehicles (Osaic) and underwriting other sponsors' continuation funds (Centauri). Every one of those transactions spins up a <b>fresh LP register</b>, forces a <b>roll-versus-cash-out election</b> across overlapping investor bases, and demands investor-level reporting that reconciles the legacy vehicle against the new one. That is the precise workflow VDR Pro, LP Onboarding, and InvestorVision are built to carry. The close is not just one onboarding event; it signals the platform is in continuous secondaries motion, which is exactly the infrastructure annuity we want.</p>
   </div>
 
-  <section class="sec" id="pulse">
-    <div class="sec-h"><h2>&#128200; Market Pulse</h2><span class="cnt">Prior session: Tuesday, June 23, 2026 close</span></div>
-    <div class="pulse-grid">
-      <div class="tile"><div class="lab">S&amp;P 500</div><div class="val">7,365.46</div><div class="chg dn">&#9660; 1.44%</div></div>
-      <div class="tile"><div class="lab">Nasdaq Comp</div><div class="val">25,587.04</div><div class="chg dn">&#9660; 2.21%</div></div>
-      <div class="tile"><div class="lab">Dow Jones</div><div class="val">51,666.84</div><div class="chg dn">&#9660; 0.09%</div></div>
-      <div class="tile"><div class="lab">Russell 2000</div><div class="val">&ndash;</div><div class="chg dn">&#9660; 0.96%</div></div>
-      <div class="tile"><div class="lab">VIX</div><div class="val">18.93</div><div class="chg up">&#9660; 2.87%</div></div>
-      <div class="tile"><div class="lab">Gold</div><div class="val">$4,024.50</div><div class="chg dn">&#9660; 3.01%</div></div>
-      <div class="tile"><div class="lab">10Y Treasury</div><div class="val">4.49%</div><div class="chg fl">2Y at 4.21%</div></div>
-      <div class="tile"><div class="lab">Fed Funds</div><div class="val">3.50&ndash;3.75%</div><div class="chg fl">Held Jun 17</div></div>
-    </div>
-    <div class="pulse-note">
-      <p><b>Risk-off, led by chips.</b> A global semiconductor selloff drove the tape on June 23. South Korea's chip-heavy KOSPI fell roughly 10 percent as SK Hynix and Samsung each dropped more than 12 percent, and the rout carried into U.S. memory and AI-infrastructure names on growing skepticism that hyperscaler AI spending will earn its return. The Nasdaq took the brunt at minus 2.21 percent; the Dow held near flat as defensives and IBM rallied. <span class="src">[CNBC, TheStreet, Trading Economics, June 23, 2026 close]</span></p>
-      <p><b>Rates are the second pressure point.</b> The 10Y sat at 4.49 percent and the 2Y at 4.21 percent, its highest since February 2025, after the Fed's hawkish June 17 dot plot under new Chair Kevin Warsh (PCE revised up to 3.6 percent, nine officials projecting at least one 2026 hike). Markets now price roughly a 68 percent chance of a September hike, up from about 29 percent a week earlier; Deutsche Bank and BofA both moved to a September-hike call. This week's PCE print is the next catalyst. <span class="src">[Trading Economics, Schwab, June 23, 2026]</span></p>
-      <p><b>Oil easing on Iran.</b> Washington granted Tehran a 60-day license to sell oil on international markets alongside a 60-day peace roadmap, pushing crude lower and taking some pressure off the inflation path. <span class="src">[CNBC, Trading Economics, June 23, 2026]</span></p>
-      <p><b>Read-through for alts coverage.</b> The listed alternative managers traded down with the broad tape and on lingering private-credit redemption jitters that began earlier in June (the Partners Group Global Value SICAV redemption cap and the Cliffwater fund gate). <span class="flag">Individual closing prints for Blackstone, KKR, Apollo, Ares, and Carlyle are withheld today:</span> no source returned a labeled, date-stamped June 23 closing price for the individual names, so per protocol they are flagged rather than published. The commercial signal stands regardless: LPs are testing liquidity across the private-markets complex, which raises the bar on investor reporting and distribution transparency exactly where our platform sits. <span class="src">[CNBC Jun 3, Morningstar, Financial Content; macro context]</span></p>
-    </div>
-  </section>
+  <div class="blk"><h4>&#128336; Deal Clock <span class="src">(verified dates only)</span></h4>
+   <div class="clock">
+    <div class="ev"><span class="d">May 2026</span> &middot; NBPE agrees realizations of FDH Aero and the Osaic continuation vehicle <span class="s">(NBPE/GlobeNewswire, announced June 24)</span></div>
+    <div class="ev"><span class="d">May 25, 2026</span> &middot; Last NB add-on investment recorded (Mont'Kiara International School) <span class="s">(PitchBook)</span></div>
+    <div class="ev"><span class="d">June 15, 2026</span> &middot; Neuberger Private Markets co-leads Abry's $780M Centauri continuation fund <span class="s">(Abry/William Blair)</span></div>
+    <div class="ev"><span class="d">June 24, 2026</span> &middot; NBPE announces May realizations; $144M YTD realizations <span class="s">(GlobeNewswire)</span></div>
+   </div>
+  </div>
 
-  <section class="sec" id="pe">
-    <div class="sec-h"><h2>&#127970; Private Equity Intelligence</h2><span class="cnt">2 of 6 featured &middot; PitchBook-verified</span></div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-name">
-          <h3>H.I.G. Capital</h3>
-          <span class="badge b-warm">Hot &middot; dated trigger</span>
-          <span class="badge b-tier">Account list: Tier 2 Warm</span>
-          <span class="badge b-pv">Partially Verified</span>
-        </div>
-        <div class="card-meta">Miami, FL &middot; <b>$75.0B AUM</b> &middot; <b>$16.7B dry powder</b> &middot; 176 investment pros &middot; <b>24 funds open</b>, 151 active portfolio companies &middot; 57 investments trailing 12 months <span class="src2">[PitchBook, profile updated 2026-06-24]</span></div>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="k">Why today</div>
-          <div class="v">PitchBook confirms H.I.G. is in heavy motion: <b>last investment June 10, 2026</b> (Wescott Industrial Services, buyout add-on), <b>57 investments in the trailing 12 months</b> across 151 active portfolio companies, and <b>24 funds currently open</b> with $16.7B of dry powder still to deploy. On the firm itself, <b>Blue Owl Capital took a minority GP stake in April 2025</b>, and earlier Dyal bought 15 percent at a $4.5B valuation: GP-stake investors push hard for institutional-grade LP reporting and transparency. Layer on the web-confirmed June 15 sale of <b>Celerion Holdings to THL Partners</b>, which sends distribution notices and revised capital accounts to LPs across every fund that held it, plus a CEO roughly two and a half months into the seat (Brian Schwartz, April 7). High deal velocity, a fresh GP-stake partner, and a leadership transition is exactly when investor-reporting infrastructure gets re-evaluated. <span class="src2">[PitchBook profile and deals 2026-06-24; higprivateequity.com, hig.com, Tracxn]</span></div>
-        </div>
-        <div class="row">
-          <div class="k">Deal clock <span style="color:var(--muted2);font-weight:600;text-transform:none;letter-spacing:0;">(verified dates only)</span></div>
-          <div class="v">
-            <div class="clock">
-              <div class="clk"><div class="d">Apr 1, 2025</div><div class="t">Blue Owl Capital acquired a minority GP stake <span class="s">[PitchBook deal 330213-16T]</span></div></div>
-              <div class="clk"><div class="d">Apr 7, 2026</div><div class="t">Brian Schwartz appointed CEO <span class="s">[hig.com]</span></div></div>
-              <div class="clk"><div class="d">May 15, 2026</div><div class="t">Completed acquisition of International Aerospace Coatings <span class="s">[hig.com / CNW]</span></div></div>
-              <div class="clk"><div class="d">Jun 10, 2026</div><div class="t">Latest investment: Wescott Industrial Services (add-on) <span class="s">[PitchBook]</span></div></div>
-              <div class="clk"><div class="d">Jun 15, 2026</div><div class="t">Completed sale of Celerion Holdings to THL Partners <span class="s">[higprivateequity.com]</span></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Operational pain this creates</div>
-          <div class="v">
-            <ul class="tight">
-              <li>Each close and exit triggers LP-facing distribution notices and revised capital accounts. At ten-plus acquisitions and multiple exits a year, the fund-finance and IR teams are reconciling capital activity across dozens of vehicles at once.</li>
-              <li>Deal-side data rooms spin up and tear down continuously for new buys and sale processes, often in a separate system from where LPs receive reporting.</li>
-              <li>A CEO in his first full quarter is the decision-maker most likely to question whether that reporting cadence is a managed workflow or a quarter-end scramble.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Intralinks product map</div>
-          <div class="v">
-            <ul class="tight">
-              <li><b>InvestorVision / FundCentre:</b> LP distribution reporting and capital-account statements delivered through the investor portal, timed to each close rather than rebuilt by hand at period end.</li>
-              <li><b>VDR Pro:</b> deal data rooms for the constant acquisition and exit flow, sitting in the same environment the LP already logs into.</li>
-              <li><b>LP Onboarding:</b> subscription and KYC workflow for the next vintage as the new vehicles come to market.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Current stack &amp; switch signal</div>
-          <div class="v"><b>Current stack unknown.</b> ZoomInfo tech tags are unavailable this session, so no incumbent platform was confirmed. Per protocol, omit any competitor reference from outreach until the AE verifies the stack natively or via ops-staff LinkedIn profiles.</div>
-        </div>
-        <div class="row">
-          <div class="k">Expected objections (general, role-based &middot; not firm-specific intel)</div>
-          <div class="v">
-            <ul class="tight">
-              <li><b>"We already have a fund administrator."</b> The administrator keeps the books; the gap is the LP-facing distribution notices and portal access timed to each close, which is where the deadline pressure actually lands.</li>
-              <li><b>"Our data room provider is fine."</b> The question is not the VDR alone, it is whether the deal-side rooms and the LP-side reporting live in one place at this deal cadence, or in two systems someone reconciles by hand.</li>
-              <li><b>"We are mid-integration, not the time."</b> A new CEO's first quarter is precisely when infrastructure decisions get made, before the next flagship vintage opens.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Contact</div>
-          <div class="v">
-            <div class="contact">
-              <span class="unv">&#9888; Ideal seat CONTACT UNVERIFIED.</span> ZoomInfo returned "No approval received," so the IR / fund-finance email and accuracy score could not be pulled. <b>PitchBook primary contact (sourced today):</b> Douglas Berman, Co-President, dberman@higcapital.com, +1 (212) 506-0500. Co-President is a relationship door-opener, not the operational owner. <b>Target seat for the sell:</b> Head of Investor Relations or CFO / fund-finance lead. <b>AE action:</b> pull that seat natively in ZoomInfo (companyWebsite hig.com) to confirm name, title, and email before sending; use Berman as a warm referral path if the IR seat is slow.
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <button class="mailbtn" onclick="var w=document.getElementById('mail-hig');w.classList.toggle('open');this.textContent=w.classList.contains('open')?'\u2715 Hide draft outreach':'\u2709 View draft outreach';">&#9993; View draft outreach</button>
-          <div class="mailwrap" id="mail-hig">
-            <div class="email">
-              <div class="eh">To: <span>Head of Investor Relations / CFO, H.I.G. Capital</span> &nbsp;&middot;&nbsp; Re: <span>Celerion proceeds and the next vintage</span></div>
-              <p>The Celerion sale to THL closed June 15, which means distribution notices and revised capital-account statements are now going to LPs across every fund that held it, on top of the IAC close and the PolarDC raise still settling from earlier this quarter. At your firm's pace, roughly ten acquisitions and several exits in the last year, the reporting team is reconciling capital activity across dozens of vehicles at the same time, and a CEO in his first full quarter is usually the moment those workflows get a hard look.</p>
-              <p>We work with credit and PE managers running this volume so that LP distribution reporting and capital statements are a managed workflow instead of a quarter-end scramble, with the data rooms for the next buys and sale processes sitting in the same place the LP already logs in to read their reporting.</p>
-              <p>When the Celerion proceeds go out, is your team assembling those distribution notices and updated capital accounts by hand, or is a system carrying the calculations through to the LP portal? <span class="cta">How does your schedule look this week</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="blk"><h4>&#128100; Key Contact <span class="unv">&middot; CONTACT UNVERIFIED</span></h4>
+   <div class="contact"><span class="nm">Maura Kennedy</span> &middot; Managing Director, Private Equity<br>
+    <span class="src">maura.kennedy@nb.com &middot; PitchBook primary contact (PBID 88990-39P). AE action: confirm email and the secondaries / private-markets IR seat natively in ZoomInfo before sending. The roll-vs-cash-out reconciliation owner may sit one level into the private-markets investor-services team.</span></div>
+  </div>
 
-    <div class="card">
-      <div class="card-top">
-        <div class="card-name">
-          <h3>Sun Capital Partners</h3>
-          <span class="badge b-warm">Hot &middot; dated trigger</span>
-          <span class="badge b-gem">&#128142; Hidden gem</span>
-          <span class="badge b-tier">Account list: Tier 3 Cold &middot; dormant 1,295 days</span>
-          <span class="badge b-pv">Partially Verified</span>
-        </div>
-        <div class="card-meta">Boca Raton, FL &middot; <b>$5.84B AUM</b> &middot; <b>$895M dry powder</b> &middot; 41 investment pros &middot; 52 active portfolio companies &middot; <b>13 investments in the last 6 months</b> &middot; RIA <span class="src2">[PitchBook, profile updated 2026-06-24]</span></div>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="k">Why today</div>
-          <div class="v">This is the account nobody is working. Sun Capital sits Tier 3 Cold with <b>1,295 days since last contact</b>, yet PitchBook shows a firm in full stride: <b>last investment June 16, 2026</b> (GEFO Folienbetrieb, buyout add-on, eight days ago and inside the window), <b>13 deals in the last six months</b>, 30 in the last twelve, and a <b>"most likely fundraising" flag</b>. The flagship <b>Sun Capital Partners VIII closed in 2022</b>; at the firm's stated 3 to 5 year deployment horizon and this deal pace, Fund VIII is deep into deployment and the next vintage is the live fundraising event. A new raise means a fresh LP onboarding and subscription cycle on top of reporting for an enlarging investor base, which is precisely the moment to be their infrastructure rather than their incumbent's renewal. <span class="src2">[PitchBook profile, deals, and fund records 2026-06-24]</span></div>
-        </div>
-        <div class="row">
-          <div class="k">Deal clock <span style="color:var(--muted2);font-weight:600;text-transform:none;letter-spacing:0;">(verified dates only)</span></div>
-          <div class="v">
-            <div class="clock">
-              <div class="clk"><div class="d">2022</div><div class="t">Sun Capital Partners VIII (flagship buyout) closed <span class="s">[PitchBook fund 20322-91F]</span></div></div>
-              <div class="clk"><div class="d">Feb 10, 2026</div><div class="t">Most recent fund close on record (Fletchers Solicitors Fund) <span class="s">[PitchBook]</span></div></div>
-              <div class="clk"><div class="d">Jun 16, 2026</div><div class="t">Latest investment: GEFO Folienbetrieb (buyout add-on) <span class="s">[PitchBook]</span></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Operational pain this creates</div>
-          <div class="v">
-            <ul class="tight">
-              <li>A next-vintage raise restarts subscription document collection, KYC and AML, and side-letter tracking for every committing LP, while the existing base still needs quarterly reporting. Two onboarding states run at once.</li>
-              <li>At 13 closes in six months across 52 portfolio companies, capital-call and distribution notices are going out almost continuously, and a 41-person shop feels that reconciliation load directly.</li>
-              <li>An account dormant for over three years is very likely still on whatever was bought several funds ago, which means no loyalty to an incumbent and an open evaluation when the next fund opens.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Intralinks product map</div>
-          <div class="v">
-            <ul class="tight">
-              <li><b>LP Onboarding:</b> subscription, KYC and AML, and side-letter workflow for the next vintage, run as a tracked pipeline instead of an email-and-spreadsheet chase.</li>
-              <li><b>FundCentre / InvestorVision:</b> capital-call and distribution notices plus capital-account statements delivered to the LP portal on the cadence the deal flow sets, not rebuilt by hand each quarter.</li>
-              <li><b>VDR Pro:</b> the data room for the next fundraise and for the continuous add-on deal flow, in the same environment the LP logs in to.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Current stack &amp; switch signal</div>
-          <div class="v"><b>Current stack unknown.</b> ZoomInfo tech tags are unavailable this session, so no incumbent platform was confirmed. The 1,295-day dormancy is itself the switch signal: there is no recent relationship anchoring them to a current vendor. Confirm the stack via ops-staff LinkedIn before naming any competitor in outreach.</div>
-        </div>
-        <div class="row">
-          <div class="k">Expected objections (general, role-based &middot; not firm-specific intel)</div>
-          <div class="v">
-            <ul class="tight">
-              <li><b>"We onboarded our current LPs fine without you."</b> The existing base is the easy part; a new vintage is a fresh wave of subscription and KYC at the same time the prior fund still needs servicing, which is when manual process breaks.</li>
-              <li><b>"We will look at this when the fund actually launches."</b> The infrastructure decision wants to be made before the first close, not retrofitted after commitments are already landing.</li>
-              <li><b>"We are a lean team and happy with our administrator."</b> The administrator keeps the books; the gap is the LP-facing onboarding and portal delivery, which is exactly where a 41-person shop loses hours.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Contact</div>
-          <div class="v">
-            <div class="contact">
-              <span class="unv">&#9888; Ideal seat CONTACT UNVERIFIED.</span> ZoomInfo returned "No approval received," so the CFO / fund-controller email and accuracy score could not be pulled. <b>PitchBook primary contact (sourced today):</b> Deryl Couch, Senior Managing Director &amp; General Counsel, dcouch@suncappart.com, +1 (561) 394-0550. <b>Firm IR inbox on record:</b> irelations@suncappart.com [PitchBook]. <b>Target seat for the sell:</b> CFO or fund controller. <b>AE action:</b> pull the CFO / controller natively in ZoomInfo (companyWebsite suncappart.com) before sending; the IR inbox is a usable secondary path.
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <button class="mailbtn" onclick="var w=document.getElementById('mail-sun');w.classList.toggle('open');this.textContent=w.classList.contains('open')?'\u2715 Hide draft outreach':'\u2709 View draft outreach';">&#9993; View draft outreach</button>
-          <div class="mailwrap" id="mail-sun">
-            <div class="email">
-              <div class="eh">To: <span>CFO / Fund Controller, Sun Capital Partners</span> &nbsp;&middot;&nbsp; Re: <span>Onboarding infrastructure before the next vintage opens</span></div>
-              <p>Your June 16 add-on into GEFO put Sun Capital at thirteen closes in six months, and with Fund VIII having closed back in 2022 the next vintage is the realistic near-term raise. That combination is the hard one for a 41-person shop: a new fund restarts subscription documents, KYC, and side-letter tracking for every committing LP while the current base still needs its quarterly capital accounts, so two onboarding states run at the same time.</p>
-              <p>We set up PE managers so that the next-fund onboarding is a tracked pipeline rather than an inbox-and-spreadsheet chase, with capital-call and distribution notices delivered to the LP portal on the cadence your deal flow sets. The point is to have that infrastructure decided before the first close, not retrofitted while commitments are already landing.</p>
-              <p>When Fund IX opens, are you planning to run subscription and KYC collection the way the last vintage was handled, or build the onboarding workflow out before the first commitments come in? <span class="cta">How does your schedule look this week</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="blk"><h4>&#9993; Outreach</h4>
+<button class="mailtoggle" onclick="tg('mail_nb',this)">✉ View draft outreach email</button>
+<div class="mail" id="mail_nb">
+<div class="ml">To: Maura Kennedy, Neuberger Berman (MD, Private Equity)</div><div class="ml">Subject:</div><div class="subj">The Osaic continuation vehicle and a second LP register</div>
+<p>Maura, NBPE's two May realizations announced this morning, FDH Aero and the Osaic continuation vehicle, push your year-to-date realizations to $144 million, and Neuberger Private Markets co-led Abry's $780 million Centauri continuation fund nine days before that on June 15.</p><p>Both of those structures do the same thing operationally: they stand up a new LP register next to an existing one and ask the same investors to either roll or cash out. The reconciliation between the legacy position and the continuation vehicle, plus onboarding the new commitments, is where the manual work piles up across overlapping bases.</p><p>We run the data room, the LP onboarding, and the investor-level reporting for that exact roll-versus-cash-out workflow, so the two registers live in one place instead of two spreadsheets that have to be tied out by hand.</p><p>With the Osaic continuation vehicle now standing up its own register alongside the rolling investors, are you reconciling the cash-out and roll elections across the two LP bases manually, or have you already built infrastructure to run those parallel registers together?</p><p>How does your schedule look this week</p></div>
+  </div>
 
-  <section class="sec" id="hf">
-    <div class="sec-h"><h2>&#128201; Hedge Fund Intelligence</h2><span class="cnt">1 of 3 featured &middot; PitchBook-verified</span></div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-name">
-          <h3>Diameter Capital Partners</h3>
-          <span class="badge b-warmamber">Warm &middot; fundraising-cycle signal</span>
-          <span class="badge b-tier">Account list: Tier 1 Hot &middot; active (DSC 0)</span>
-          <span class="badge b-pv">Partially Verified</span>
-        </div>
-        <div class="card-meta">New York, NY (50 Hudson Yards) &middot; Credit hedge fund, founded 2017 &middot; <b>$26.3B AUM</b> &middot; <b>22 funds open</b> &middot; long/short across the credit spectrum <span class="src2">[PitchBook, profile updated 2026-06-23]</span></div>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="k">Why today <span style="color:var(--muted2);font-weight:600;text-transform:none;letter-spacing:0;">(catalyst dated honestly, not a 7-day trigger)</span></div>
-          <div class="v">Diameter is already a Tier 1 Hot account in active contact (DSC 0), so this is account expansion rather than cold prospecting. The commercial catalyst is a fundraising-cycle one: the <b>$4.5B Diameter Dislocation Master Fund III closed November 13, 2025</b> and is now actively deploying (a $34.9M term-loan deal as recently as March 10, 2026), the <b>Diameter Credit Company BDC is open</b>, and PitchBook flags the firm as <b>most likely fundraising</b> across <b>22 currently open funds</b>. A $4.5B dislocation vehicle now calling capital and a continuously offered BDC mean LP onboarding and ongoing investor servicing are live workloads right now, not a future event. <b>To be explicit:</b> the freshest hard fund-close date is November 2025, outside the 30-day window, so this is presented as a WARM fundraising-cycle and active-deployment signal, not a hot 0 to 7 day trigger. <span class="src2">[PitchBook profile, deals, and fund records 2026-06-23]</span></div>
-        </div>
-        <div class="row">
-          <div class="k">Deal clock <span style="color:var(--muted2);font-weight:600;text-transform:none;letter-spacing:0;">(verified dates only)</span></div>
-          <div class="v">
-            <div class="clock">
-              <div class="clk"><div class="d">Apr 2, 2025</div><div class="t">Raised $30M senior convertible bond financing <span class="s">[PitchBook deal 319586-14T]</span></div></div>
-              <div class="clk"><div class="d">Nov 13, 2025</div><div class="t">Dislocation Master Fund III closed at $4.5B <span class="s">[PitchBook fund 27509-68F]</span></div></div>
-              <div class="clk"><div class="d">Mar 10, 2026</div><div class="t">Latest deal: $34.9M first-lien term loan / revolver <span class="s">[PitchBook]</span></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Operational pain this creates</div>
-          <div class="v">
-            <ul class="tight">
-              <li>A continuously offered BDC and 22 open funds means investor servicing never sits idle: subscriptions, capital calls, distributions, and statements run on overlapping calendars across vehicles.</li>
-              <li>A $4.5B dislocation fund deploying into distressed and special-situations credit generates frequent capital activity and valuation updates that LPs expect to see promptly and accurately.</li>
-              <li>Credit managers are feeling LP transparency pressure most acutely in the current redemption climate, where investors are testing liquidity and scrutinizing reporting timeliness across the private-credit complex.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Intralinks product map</div>
-          <div class="v">
-            <ul class="tight">
-              <li><b>InvestorVision / FundCentre:</b> investor statements, capital-call and distribution notices, and document delivery across all open vehicles and the BDC through one LP portal.</li>
-              <li><b>LP Onboarding:</b> subscription and KYC workflow for ongoing BDC and fund inflows, run as a tracked pipeline rather than per-vehicle manual handling.</li>
-              <li><b>VDR Pro:</b> diligence and reporting rooms for the credit deal flow, in the same environment investors already use.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Current stack &amp; switch signal</div>
-          <div class="v"><b>Current stack unknown.</b> ZoomInfo tech tags are unavailable this session, so no incumbent platform was confirmed. Omit any competitor reference until the AE verifies the stack natively or via ops-staff LinkedIn profiles.</div>
-        </div>
-        <div class="row">
-          <div class="k">Expected objections (general, role-based &middot; not firm-specific intel)</div>
-          <div class="v">
-            <ul class="tight">
-              <li><b>"We have an administrator and a fund-services provider."</b> The administrator strikes the NAV; the gap is the investor-facing delivery and onboarding across 22 vehicles plus a public BDC, where the volume actually lives.</li>
-              <li><b>"Our LPs are institutional and low-maintenance."</b> Institutional LPs are exactly the ones auditing reporting timeliness in this redemption climate; the bar is higher, not lower.</li>
-              <li><b>"We are mid-deployment on Fund III."</b> Active deployment is when capital activity and statement volume peak, which is when a managed workflow pays for itself versus a manual one.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="k">Contact</div>
-          <div class="v">
-            <div class="contact">
-              <span class="unv">&#9888; Ideal seat CONTACT UNVERIFIED.</span> ZoomInfo returned "No approval received," so the COO / IR email and accuracy score could not be pulled. <b>PitchBook primary contact (sourced today):</b> Scott Goodwin, Co-Founder &amp; Managing Partner, scott.goodwin@diametercap.com, +1 (212) 655-1400. <b>Target seat for the sell:</b> COO or Head of Investor Relations / investor servicing. <b>AE action:</b> this is already a Tier 1 active account, so coordinate with the existing owner before outreach; pull the COO / IR seat natively in ZoomInfo (companyWebsite diametercap.com) to confirm name, title, and email.
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <button class="mailbtn" onclick="var w=document.getElementById('mail-dia');w.classList.toggle('open');this.textContent=w.classList.contains('open')?'\u2715 Hide draft outreach':'\u2709 View draft outreach';">&#9993; View draft outreach</button>
-          <div class="mailwrap" id="mail-dia">
-            <div class="email">
-              <div class="eh">To: <span>COO / Head of Investor Relations, Diameter Capital</span> &nbsp;&middot;&nbsp; Re: <span>Investor servicing across the BDC and Fund III deployment</span></div>
-              <p>With the $4.5B Dislocation Fund III now deploying since its November close and the Diameter Credit Company BDC continuously offered, investor servicing at Diameter is running across 22 open vehicles at once: subscriptions, capital calls, distributions, and statements all on overlapping calendars. In a credit book deploying into distressed and special situations, the valuation updates and capital activity that LPs want to see promptly are also the most frequent.</p>
-              <p>We work with credit managers so that investor statements and capital activity across every vehicle, including a public BDC, are delivered through one LP portal on a managed cadence, which matters more in a climate where institutional investors are scrutinizing reporting timeliness across private credit.</p>
-              <p>As Fund III moves deeper into deployment, is your team delivering capital-call and distribution reporting across the funds and the BDC through one investor portal, or assembling it per vehicle each period? <span class="cta">How does your schedule look this week</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="blk"><h4>&#9888; Expected Objections <span class="src">(general, role-based, not firm-specific)</span></h4>
+   <div class="obj"><div class="q">"We are a $567B shop, we have this built internally."</div><div class="a">Scale is exactly why the seams show. The question is not whether reporting exists, it is whether continuation-vehicle elections reconcile to the legacy register without manual tie-outs. That is the failure point we fix.</div></div>
+   <div class="obj"><div class="q">"Our fund admin handles onboarding."</div><div class="a">Admins post the records, they do not run a clean LP-facing onboarding and document workflow for a brand-new continuation register. That investor experience is what we own.</div></div>
+   <div class="obj"><div class="q">"Secondaries are episodic, not worth a platform change."</div><div class="a">For Neuberger they are not episodic. Two continuation events inside ten days is a cadence, and a cadence is a process, not a one-off.</div></div>
+  </div>
 
-  <section class="sec" id="addl">
-    <div class="sec-h"><h2>&#127919; Additional Intelligence</h2><span class="cnt">0 of 2 featured &middot; section held</span></div>
-    <div class="held">
-      <div class="ht">Section held with rationale &middot; VC and asset/wealth-manager scan returned no on-list dated trigger.</div>
-      <div>The venture and wealth-manager universe is active, but this run's dated triggers sat off-list or outside the window:</div>
-      <ul>
-        <li><b>VC closes</b> (Anti Fund $100M Jun 18, Wingman Growth $215M Jun 2, Angel Invest Fund III Jun 11, Healthier Capital $220M): all off the master account list.</li>
-        <li><b>RIA / wealth M&amp;A</b> (Waverly's $3B Smithfield Trust buy Jun 17, Vestmark $50B AUM Jun 18, Sanctuary and Maridea Jun 22): all off-list acquirers.</li>
-        <li><b>Victory Capital</b> (on list): only dated June event was a routine May-AUM report (June 9, $338.9B). That is not a buying trigger; the Janus Henderson bid was withdrawn back in March. Logged NO SIGNAL. <b>Calamos</b> (on list): last deal 2021, stale.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec" id="watch">
-    <div class="sec-h"><h2>&#128274; Re-Engagement Watchlist</h2><span class="cnt">Tier 1 Hot accounts dormant 180+ days &middot; awareness only, no outreach drafted</span></div>
-    <div class="wl-wrap">
-      <table class="wl">
-        <thead>
-          <tr><th style="width:22%;">Firm</th><th style="width:10%;">Days Since Contact</th><th style="width:30%;">Last Known Trigger</th><th style="width:38%;">Suggested Re-Engagement Angle (by firm type)</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="fn">Tyree &amp; D'Angelo Partners</span><br><span style="color:var(--muted2);">Chicago, IL &middot; LMM healthcare PE</span></td>
-            <td><span class="dsc">694</span></td>
-            <td>Western Veterinary Partners single-asset continuation fund (Nov 2025) and minority growth round (Apr 2026). Both outside the lookback.</td>
-            <td>Buy-and-build vet roll-up with a fresh continuation vehicle means a new LP base to onboard alongside the original fund. Lead with continuation-vehicle LP onboarding and parallel fund reporting.</td>
-          </tr>
-          <tr>
-            <td><span class="fn">KSL Capital Partners</span><br><span style="color:var(--muted2);">Denver, CO &middot; Travel &amp; leisure PE</span></td>
-            <td><span class="dsc">189</span></td>
-            <td>None inside the lookback window today.</td>
-            <td>Travel and leisure specialist between vintages. Re-engage on next-fund LP onboarding and subscription workflow before the raise opens; position as the infrastructure for the next flagship.</td>
-          </tr>
-          <tr>
-            <td><span class="fn">Panning Capital Management</span><br><span style="color:var(--muted2);">New York, NY &middot; Credit-oriented HF</span></td>
-            <td><span class="dsc">1,792</span></td>
-            <td>None inside the lookback window today.</td>
-            <td>Long-dormant credit manager. Re-engage on investor reporting and subscription-document handling; credit shops feel LP transparency pressure most in the current redemption climate.</td>
-          </tr>
-          <tr>
-            <td><span class="fn">Palisade Capital Management</span><br><span style="color:var(--muted2);">Fort Lee, NJ &middot; Asset manager</span></td>
-            <td><span class="dsc">724</span></td>
-            <td>None inside the lookback window today.</td>
-            <td>Boutique multi-strategy manager. Angle on consolidating investor communications and reporting into one portal as advisor and institutional reporting demands rise.</td>
-          </tr>
-          <tr>
-            <td><span class="fn">Hennessy Advisors, Inc.</span><br><span style="color:var(--muted2);">Novato, CA &middot; Public asset manager</span></td>
-            <td><span class="dsc">1,121</span></td>
-            <td>None inside the lookback window today.</td>
-            <td>Acquisitive mutual-fund manager. Re-engage around fund-family reporting and the data-room workflow that supports its bolt-on fund acquisitions.</td>
-          </tr>
-          <tr>
-            <td><span class="fn">Amstar Group</span><br><span style="color:var(--muted2);">Denver, CO &middot; Real estate PE</span></td>
-            <td><span class="dsc">207</span></td>
-            <td>None inside the lookback window today.</td>
-            <td>Global real estate sponsor. Angle on capital calls, distribution notices, and deal data rooms for a property-level investment cadence; reporting volume scales with each asset.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="font-size:11.5px;color:var(--muted2);margin-top:10px;padding-left:2px;">Watchlist surfaces high-priority dormant relationships the signal scan could not activate today. Firms flagged elsewhere as wound-down or defunct (e.g. SVB Financial, WL Ross, Marble Ridge, STORE Capital, Solovis) were screened out. No outreach emails are drafted for watchlist entries; these are for AE awareness and a warm re-open.</div>
-  </section>
-
-  <section class="sec" id="archive">
-    <div class="sec-h"><h2>&#128193; Past Editions</h2><span class="cnt">Most recent first</span></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:10px;">
-      <a href="archive/2026-06-23.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 23, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">ECP VI · Water Street · Court Square</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Kayne Anderson · Shamrock · Cendana</div>
-      </a>
-      <a href="archive/2026-06-18.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 18, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">WindRose · Emerald Lake · Verition</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Court Square Capital</div>
-      </a>
-      <a href="archive/2026-06-17.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 17, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Clearlake · Crescent · Future Standard</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Knighthead · Perigon Wealth</div>
-      </a>
-      <a href="archive/2026-06-16.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 16, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Clearlake · Truelink · Percheron</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Redding Ridge · Versant Ventures</div>
-      </a>
-      <a href="archive/2026-06-15.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 15, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Monday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-06-11.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 11, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Thursday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-06-10.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 10, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">MidOcean Partners Edition</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-06-09.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 9, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Monday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-06-08.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 8, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Sunday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-06-04.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 4, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Thursday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-06-03.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 3, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Wednesday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-06-01.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">June 1, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Monday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-29.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 29, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Friday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-28.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 28, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Thursday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-27.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 27, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Wednesday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-22.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 22, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Friday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-21.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 21, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Thursday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-20.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 20, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Wednesday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-19.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 19, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Tuesday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-18.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 18, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Monday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-15.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 15, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Friday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-13.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 13, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Wednesday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-      <a href="archive/2026-05-12.html" style="display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase;">May 12, 2026</div>
-        <div style="font-size:14px;font-weight:800;margin-top:4px;color:#eaf4ff;">Tuesday Briefing</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <p><b>Sourcing &amp; method.</b> Market Pulse figures reflect the Tuesday, June 23, 2026 U.S. close, pulled via live web search (CNBC, TheStreet, Trading Economics, Schwab, Yahoo Finance) before publication. PE manager individual closing prints were withheld where no labeled, date-stamped source was confirmed. Firm intelligence is <b>PitchBook-verified this session</b> (profile, deals, fund records, AUM, and dry powder, cited inline) and corroborated with dated press releases, company news pages, and SEC filings. <b class="flag">ZoomInfo was unavailable this session ("No approval received"); named contacts shown are PitchBook primary contacts, and the ideal finance / IR / COO seat for each firm is flagged CONTACT UNVERIFIED and must be confirmed natively before any outreach is sent.</b> Firms featured in prior editions are excluded under the standing no-repeat rule. Sections are held with disclosed rationale rather than padded.</p>
-    <p style="margin-top:10px;">Intralinks Alternative Investments Briefing &middot; Edition #109 &middot; Wednesday, June 24, 2026 &middot; <b>Created by Jack Conklin</b> &middot; For internal sales coverage use only.</p>
-  </footer>
-
+  <div class="blk"><h4>&#128270; Current Stack + Switch Signal</h4>
+   <p class="src">Current stack unknown. ZoomInfo tech tags were unavailable this session, so no competitor platform is named and no switch event is asserted. Omit any competitor reference from outreach until the stack is confirmed natively.</p>
+  </div>
+ </div>
 </div>
-</body>
-</html>
+
+<div class="card">
+ <div class="chead"><div class="crow">
+  <div><div class="cname">Littlejohn &amp; Co., LLC</div>
+   <div class="cmeta">Greenwich, CT &bull; Mid-Market PE / Special Situations &bull; AUM $8B &bull; Dry powder $269M &bull; PBID 10156-51</div></div>
+  <div class="badges">
+   <span class="bdg bd-hot">&#128293; Hot Signal</span>
+   <span class="bdg bd-gem">&#128142; Hidden Gem</span>
+   <span class="bdg bd-tier">Tier 3 Cold</span>
+   <span class="bdg bd-ver">&#9989; Fully Verified (PitchBook)</span>
+  </div>
+ </div></div>
+ <div class="cbody">
+
+  <div class="blk"><h4>&#9889; The Signal</h4>
+   <p>Littlejohn just <b>closed the Littlejohn Continuation Fund (2026 vintage) on May 27</b>, a GP-led secondary that stands up its own LP register. <span class="src">(PitchBook, fund 29572-93F)</span> Nine days later it <b>carved Milrose Consultants out of Southfield Capital</b> in a secondary buyout on June 3, and a <b>JD Gonzalez CHB add-on landed Monday, June 22</b>. <span class="src">(PitchBook deals; Fortune Term Sheet, June 4)</span> The firm ran <b>8 investments in the last 6 months</b> and PitchBook flags it as "most likely fundraising." <span class="src">(PitchBook profile, updated June 24, 2026)</span></p>
+  </div>
+
+  <div class="blk"><h4>&#128176; The Commercial Read</h4>
+   <p>This is the cleanest mid-market fit on the board. A continuation fund means a <b>net-new LP base to onboard</b> next to the flagship Fund VI investors, with rolled investors to reconcile against new commitments. Layer a secondary buyout and a fresh add-on into the same month and the deal-by-deal data room and investor-reporting load is climbing fast. The decisive detail: their primary contact owns <b>Capital Formation and Investor Relations</b>, so the buyer and the pain owner are the same person.</p>
+  </div>
+
+  <div class="blk"><h4>&#128336; Deal Clock</h4>
+   <div class="clock">
+    <div class="ev"><span class="d">May 27, 2026</span> &middot; Littlejohn Continuation Fund closes <span class="s">(PitchBook)</span></div>
+    <div class="ev"><span class="d">June 3, 2026</span> &middot; Acquires Milrose Consultants from Southfield Capital (secondary buyout) <span class="s">(Fortune / PitchBook)</span></div>
+    <div class="ev"><span class="d">June 22, 2026</span> &middot; JD Gonzalez CHB add-on completed <span class="s">(PitchBook)</span></div>
+   </div>
+  </div>
+
+  <div class="blk"><h4>&#128100; Key Contact <span class="unv">&middot; CONTACT UNVERIFIED</span></h4>
+   <div class="contact"><span class="nm">Philip Lo</span> &middot; Managing Director, Capital Formation, Private Equity &amp; Investor Relations<br>
+    <span class="src">plo@littlejohnllc.com &middot; PitchBook primary contact (PBID 43798-06P). This seat is the ideal target: capital formation plus IR in one title. AE action: confirm email natively in ZoomInfo before sending.</span></div>
+  </div>
+
+  <div class="blk"><h4>&#9993; Outreach</h4>
+<button class="mailtoggle" onclick="tg('mail_lj',this)">✉ View draft outreach email</button>
+<div class="mail" id="mail_lj">
+<div class="ml">To: Philip Lo, Littlejohn & Co. (MD, Capital Formation & IR)</div><div class="ml">Subject:</div><div class="subj">Two LP registers running at once after May 27</div>
+<p>Philip, the Littlejohn Continuation Fund closed on May 27, and nine days later you carved Milrose Consultants out of Southfield Capital, with a JD Gonzalez add-on closing this past Monday. That is three investor-facing events in under a month.</p><p>The continuation vehicle is the one that creates the most work for your seat: it carries its own LP register alongside Fund VI, the rolled investors have to reconcile against the new commitments, and every add-on adds another set of deal documents to distribute.</p><p>We run the LP onboarding, the data room, and the investor reporting so the continuation register and the flagship register sit in one workflow, which matters most when you are personally accountable for both capital formation and IR.</p><p>With the continuation vehicle now carrying its own LP register next to Fund VI, are you onboarding the rolled and new investors into it by hand, or do you have a single workflow running both registers?</p><p>How does your schedule look this week</p></div>
+  </div>
+
+  <div class="blk"><h4>&#9888; Expected Objections <span class="src">(general, role-based)</span></h4>
+   <div class="obj"><div class="q">"The continuation fund is closed, onboarding is done."</div><div class="a">The close starts the work, it does not end it. Capital calls, ongoing investor reporting, and reconciling rolled positions to the legacy fund run for the life of the vehicle.</div></div>
+   <div class="obj"><div class="q">"We are mid-market, we keep it lean."</div><div class="a">Lean is the argument for one workflow, not several. Eight deals in six months on a lean team is exactly where manual onboarding breaks.</div></div>
+   <div class="obj"><div class="q">"Our administrator covers this."</div><div class="a">Administrators reconcile the books. They do not give your LPs a clean onboarding and document experience, which is what protects re-ups into the next flagship.</div></div>
+  </div>
+
+  <div class="blk"><h4>&#128270; Current Stack + Switch Signal</h4>
+   <p class="src">Current stack unknown. ZoomInfo tech tags unavailable this session; no competitor named, no switch event asserted. Confirm before referencing any incumbent platform.</p>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <div class="chead"><div class="crow">
+  <div><div class="cname">Sheridan Capital Partners</div>
+   <div class="cmeta">Chicago, IL &bull; Healthcare Lower-Middle-Market PE &bull; AUM $1.44B &bull; 25 investment pros &bull; PBID 55876-87</div></div>
+  <div class="badges">
+   <span class="bdg bd-warm">&#9889; Warm-to-Hot</span>
+   <span class="bdg bd-gem">&#128142; Hidden Gem</span>
+   <span class="bdg bd-tier">Tier 2 Warm &middot; 226d dormant</span>
+   <span class="bdg bd-ver">&#9989; Fully Verified (PitchBook)</span>
+  </div>
+ </div></div>
+ <div class="cbody">
+
+  <div class="blk"><h4>&#9889; The Signal</h4>
+   <p>Sheridan <b>closed Tres Health on June 3</b> (majority stake, PE growth/acquisition financing), its <b>third platform investment in six months</b>. <span class="src">(PitchBook deals; Fortune Term Sheet, June 4)</span> More important for us: PitchBook shows <b>Sheridan Capital Partners HCIT Fund I (2024 vintage) is OPEN and raising</b>, the firm's first dedicated healthcare-IT vehicle, running alongside the flagship (Fund III closed at $575M in 2023). <span class="src">(PitchBook, funds 26685-37F and 20384-29F, profile updated June 21, 2026)</span> The firm is "most likely fundraising." Tier 2 Warm and dormant 226 days, so this is also a clean re-engagement.</p>
+  </div>
+
+  <div class="blk"><h4>&#128176; The Commercial Read</h4>
+   <p>A first dedicated strategy is the textbook hidden-gem trigger: a <b>net-new LP base</b> that has never been onboarded to a Sheridan vehicle, a <b>parallel fundraise running next to the flagship</b>, and a data room plus subscription workflow that has to be built from scratch for the HCIT vintage rather than reused. The Tres Health close adds a fresh portfolio company to fold into investor reporting. For a 25-person healthcare specialist, this is the moment to set the onboarding and reporting infrastructure correctly before the new fund scales.</p>
+  </div>
+
+  <div class="blk"><h4>&#128336; Deal Clock</h4>
+   <div class="clock">
+    <div class="ev"><span class="d">2024 vintage</span> &middot; HCIT Fund I opened; PitchBook status OPEN and raising <span class="s">(PitchBook, date of final close unverified, omitted)</span></div>
+    <div class="ev"><span class="d">June 3, 2026</span> &middot; Tres Health majority stake closed (3rd platform deal in 6 months) <span class="s">(Fortune / PitchBook)</span></div>
+   </div>
+  </div>
+
+  <div class="blk"><h4>&#128100; Key Contact <span class="unv">&middot; CONTACT UNVERIFIED</span></h4>
+   <div class="contact"><span class="nm">Alexandra Kier</span> &middot; Partner &amp; Head of Business Development<br>
+    <span class="src">alexandra.kier@sheridancp.com &middot; PitchBook primary contact (PBID 134775-55P). Right seat for the HCIT Fund I raise. AE action: confirm email natively; the CFO or fund controller is the secondary target for the onboarding build.</span></div>
+  </div>
+
+  <div class="blk"><h4>&#9993; Outreach</h4>
+<button class="mailtoggle" onclick="tg('mail_sh',this)">✉ View draft outreach email</button>
+<div class="mail" id="mail_sh">
+<div class="ml">To: Alexandra Kier, Sheridan Capital Partners (Partner & Head of BD)</div><div class="ml">Subject:</div><div class="subj">HCIT Fund I and a brand-new LP base</div>
+<p>Alexandra, Sheridan closed Tres Health on June 3, your third platform deal in six months, and HCIT Fund I, your first dedicated healthcare-IT vehicle, is open and raising alongside the flagship.</p><p>A first dedicated strategy brings an LP base that has never been onboarded to a Sheridan fund, and it runs as a second live fundraise next to Fund III rather than a continuation of it. The data room, the subscription documents, and the onboarding workflow get built from scratch for this vintage, which is the moment that either sets a clean standard or hardwires manual work for the life of the fund.</p><p>We stand up the data room and the subscription onboarding for a new fund so the HCIT raise and the flagship run on one workflow, with investor reporting that scales as the fund grows rather than being rebuilt later.</p><p>Since HCIT Fund I is your first dedicated healthcare-IT raise, are you running its data room and subscription onboarding on the same setup as the flagship, or building it from scratch for this LP base?</p><p>How does your schedule look this week</p></div>
+  </div>
+
+  <div class="blk"><h4>&#9888; Expected Objections <span class="src">(general, role-based)</span></h4>
+   <div class="obj"><div class="q">"We will reuse what we did for Fund III."</div><div class="a">A first-time strategy rarely maps cleanly onto the flagship LP base or document set. The reuse assumption is usually where the manual rework starts.</div></div>
+   <div class="obj"><div class="q">"We are still early in the raise."</div><div class="a">Early is the only time to set the onboarding standard cheaply. Once 30 LPs are in on an ad-hoc setup, changing it costs more than starting clean.</div></div>
+   <div class="obj"><div class="q">"We are a small team, this is overhead."</div><div class="a">A 25-person team running two raises at once is the definition of where overhead should be tooling, not headcount.</div></div>
+  </div>
+
+  <div class="blk"><h4>&#128270; Current Stack + Switch Signal</h4>
+   <p class="src">Current stack unknown. ZoomInfo tech tags unavailable this session; no competitor named. Confirm before referencing any incumbent platform.</p>
+  </div>
+ </div>
+</div>
+
+<h2 class="sec" id="hf">&#128202; 3. Hedge Fund Intelligence</h2>
+<div class="sec-note">One featured firm with a dated, on-list in-market raise. No hedge fund hidden gem cleared today: the on-list HF universe returned no smaller name with a verifiable dated trigger inside the window, so the section is led by a large name on the strength of a clean signal rather than padded.</div>
+
+<div class="card">
+ <div class="chead"><div class="crow">
+  <div><div class="cname">Man Group (Man GLG / Man Credit)</div>
+   <div class="cmeta">London / New York &bull; Alternatives &amp; Hedge Fund Manager &bull; AUM $228.7B &bull; LSE: EMG &bull; PBID 25259-14</div></div>
+  <div class="badges">
+   <span class="bdg bd-hot">&#128293; Hot Signal</span>
+   <span class="bdg bd-tier">Tier 3 Cold (Man GLG)</span>
+   <span class="bdg bd-ver">&#9989; Fully Verified (PitchBook)</span>
+  </div>
+ </div></div>
+ <div class="cbody">
+
+  <div class="blk"><h4>&#9889; The Signal</h4>
+   <p>Man Group announced the <b>first close of Man Opportunistic Credit Fund III (MOC Fund III) on June 8</b>, targeting <b>$1.25B</b> with a final close expected within 12 months and a <b>$1.5B hard cap</b>. The strategy invests in mid-market, off-the-run credit and is <b>led by Jason Dillow</b>. <span class="src">(man.com press release, June 8, 2026)</span> The critical context PitchBook confirms: <b>Man Group acquired Bardin Hill Investment Partners in October 2025</b> ($81M, merger/acquisition), so MOC Fund III is the <b>first vintage run by the integrated Bardin Hill credit team under the Man Group umbrella.</b> <span class="src">(PitchBook profile, updated June 24, 2026)</span></p>
+  </div>
+
+  <div class="blk"><h4>&#128176; The Commercial Read</h4>
+   <p>A first-close credit vintage from a just-integrated team is two onboarding problems at once: a <b>fresh LP base coming into MOC Fund III</b> over a 12-month raise window, and the <b>legacy Bardin Hill investor base to reconcile</b> against Man Group's platform after the acquisition. That is the moment a manager either consolidates investor servicing onto one stack or carries two. The in-market window (first close to final close) is when the LP onboarding and reporting decision gets made, which is precisely the FundCentre and LP Onboarding entry point.</p>
+  </div>
+
+  <div class="blk"><h4>&#128336; Deal Clock</h4>
+   <div class="clock">
+    <div class="ev"><span class="d">Oct 1, 2025</span> &middot; Man Group acquires Bardin Hill Investment Partners ($81M) <span class="s">(PitchBook)</span></div>
+    <div class="ev"><span class="d">June 8, 2026</span> &middot; First close of MOC Fund III; $1.25B target, $1.5B hard cap, final close within 12 months <span class="s">(man.com)</span></div>
+   </div>
+  </div>
+
+  <div class="blk"><h4>&#128100; Key Contacts <span class="unv">&middot; CONTACT UNVERIFIED</span></h4>
+   <div class="contact"><span class="nm">Zeshan Ashfaque</span> &middot; Senior Managing Director &amp; Senior Credit Officer, US Direct Lending (New York)<br>
+    <span class="src">PitchBook team record (PBID 198201-25P), updated June 3, 2026. Closest US credit seat to MOC Fund III. AE action: confirm email and the MOC Fund III fund-operations / investor-relations lead natively.</span></div>
+   <div class="contact"><span class="nm">Antoine Forterre</span> &middot; Chief Financial Officer &amp; Board Member (London)<br>
+    <span class="src">PitchBook team record (PBID 166792-78P). Firm-level finance owner for the integration and infrastructure decision. AE action: confirm before sending.</span></div>
+  </div>
+
+  <div class="blk"><h4>&#9993; Outreach</h4>
+<button class="mailtoggle" onclick="tg('mail_man',this)">✉ View draft outreach email</button>
+<div class="mail" id="mail_man">
+<div class="ml">To: Man Group credit finance / IR lead (confirm seat) &middot; cc Zeshan Ashfaque</div><div class="ml">Subject:</div><div class="subj">MOC Fund III first close and the Bardin Hill investor base</div>
+<p>The first close of Man Opportunistic Credit Fund III on June 8, targeting $1.25 billion to a $1.5 billion hard cap, is the first vintage your team has raised since the October acquisition folded Bardin Hill into Man Group.</p><p>That puts two onboarding tracks in front of you at the same time: a fresh LP base coming into MOC Fund III across the 12-month raise, and the legacy Bardin Hill investor base to reconcile against the Man Group platform. The first-close-to-final-close window is when most managers decide whether investor servicing consolidates onto one stack or stays split.</p><p>We run the fund data room, the LP onboarding, and the investor reporting on a single platform, which is the version where the new MOC commitments and the carried-over Bardin Hill investors are serviced the same way rather than from two systems.</p><p>With MOC Fund III at first close and a 12-month runway to the final close, are you onboarding the new commitments into the Man Group stack or still running the Bardin Hill investor base on its legacy setup?</p><p>How does your schedule look this week</p></div>
+  </div>
+
+  <div class="blk"><h4>&#9888; Expected Objections <span class="src">(general, role-based)</span></h4>
+   <div class="obj"><div class="q">"Man Group has institutional-grade systems already."</div><div class="a">Agreed, which is why the gap is integration, not capability. Post-acquisition, the question is whether the acquired investor base runs on the same stack, and that is the seam.</div></div>
+   <div class="obj"><div class="q">"This is a credit fund, onboarding is light."</div><div class="a">A 12-month raise to $1.25B is a long stream of commitments and capital calls, not a single event. Off-the-run credit also means complex co-invest and side-letter servicing.</div></div>
+   <div class="obj"><div class="q">"Integration is handled internally."</div><div class="a">Internally handled and cleanly handled are different. The fastest path to one investor experience across both bases is one onboarding workflow, not a migration project.</div></div>
+  </div>
+
+  <div class="blk"><h4>&#128270; Current Stack + Switch Signal</h4>
+   <p class="src">Current stack unknown. ZoomInfo tech tags unavailable this session; no competitor named. Confirm before referencing any incumbent platform.</p>
+  </div>
+ </div>
+</div>
+
+<h2 class="sec" id="addl">&#127919; 4. Additional Intelligence (VC / Asset &amp; Wealth / Real Assets)</h2>
+<div class="sec-note">One featured firm, a real estate and infrastructure manager with a dated capital-formation expansion trigger. The fresh VC and wealth-manager fund launches surfaced today (Simon Quick, DayMark, Lightning Capital) are all off the master account list and cannot be featured.</div>
+
+<div class="card">
+ <div class="chead"><div class="crow">
+  <div><div class="cname">Harrison Street Real Estate Capital</div>
+   <div class="cmeta">Chicago, IL &bull; Real Estate / Infrastructure / Credit Manager &bull; AUM $109B &bull; Dry powder $1.54B &bull; PBID 11632-60</div></div>
+  <div class="badges">
+   <span class="bdg bd-warm">&#9889; Warm-to-Hot</span>
+   <span class="bdg bd-tier">Tier 3 Cold</span>
+   <span class="bdg bd-ver">&#9989; Fully Verified (PitchBook)</span>
+  </div>
+ </div></div>
+ <div class="cbody">
+
+  <div class="blk"><h4>&#9889; The Signal</h4>
+   <p>On June 11 Harrison Street <b>named Michael Humphrey Managing Director and Co-Head of Asia for its Investor Solutions Group</b>, the team that runs investor engagement and capital formation, and announced it is <b>opening a Singapore office</b> to support a growing institutional base across APAC (alongside existing Tokyo and Seoul offices). <span class="src">(Harrison Street press release; DealStreetAsia, June 11, 2026)</span> PitchBook confirms <b>$109B AUM, "most likely fundraising," 7 open funds, and 8 fund closes in the last 5 years.</b> <span class="src">(PitchBook profile, updated June 25, 2026)</span></p>
+  </div>
+
+  <div class="blk"><h4>&#128176; The Commercial Read</h4>
+   <p>This is a capital-formation expansion, not a one-off hire. Standing up a new office and an Investor Solutions co-head for APAC means <b>onboarding LPs across new jurisdictions and currencies</b> and servicing them to the same reporting standard as the North American and European base. Across $109B and seven open funds spanning real estate, infrastructure, and credit, every new region multiplies the onboarding and investor-reporting load. The Investor Solutions Group is, by name, the team that owns this problem, and they are scaling it right now.</p>
+  </div>
+
+  <div class="blk"><h4>&#128336; Deal Clock</h4>
+   <div class="clock">
+    <div class="ev"><span class="d">2025</span> &middot; HS Digital I closed at $600M, last flagship close <span class="s">(PitchBook)</span></div>
+    <div class="ev"><span class="d">June 11, 2026</span> &middot; Appoints MD and Co-Head of Asia, Investor Solutions Group; opening Singapore office <span class="s">(Harrison Street / DealStreetAsia)</span></div>
+   </div>
+  </div>
+
+  <div class="blk"><h4>&#128100; Key Contact <span class="unv">&middot; CONTACT UNVERIFIED</span></h4>
+   <div class="contact"><span class="nm">Christopher Merrill</span> &middot; Co-Founder, Managing Partner &amp; Global CEO<br>
+    <span class="src">cmerrill@harrisonst.com &middot; PitchBook primary contact (PBID 17838-46P). For the operational sell the better target is the US or global head of the Investor Solutions Group / capital formation, with Michael Humphrey (new MD, Co-Head of Asia, Singapore) as the dated hire anchoring the outreach. AE action: confirm the Investor Solutions Group leadership seat and email natively before sending.</span></div>
+  </div>
+
+  <div class="blk"><h4>&#9993; Outreach</h4>
+<button class="mailtoggle" onclick="tg('mail_hs',this)">✉ View draft outreach email</button>
+<div class="mail" id="mail_hs">
+<div class="ml">To: Harrison Street, Investor Solutions Group / capital formation lead (confirm seat)</div><div class="ml">Subject:</div><div class="subj">Onboarding the new APAC LP base across jurisdictions</div>
+<p>Harrison Street named Michael Humphrey Managing Director and Co-Head of Asia for the Investor Solutions Group on June 11 and is opening a Singapore office to support a growing institutional base across APAC.</p><p>Expanding capital formation into a new region means onboarding LPs across more jurisdictions and currencies and then servicing them to the same reporting standard as your North American and European investors. Across $109 billion and seven open funds in real estate, infrastructure, and credit, each new region adds to the onboarding and investor-reporting load rather than replacing it.</p><p>We run the LP onboarding, the data room, and the investor reporting on one platform, which is the version where the new APAC commitments are serviced the same way as the rest of the base rather than on a separate regional setup.</p><p>As the Investor Solutions Group adds APAC LPs across new jurisdictions, are you onboarding and servicing those investors on the same workflow as your North American and European base, or standing up something separate for the region?</p><p>How does your schedule look this week</p></div>
+  </div>
+
+  <div class="blk"><h4>&#9888; Expected Objections <span class="src">(general, role-based)</span></h4>
+   <div class="obj"><div class="q">"We are part of Colliers, we have enterprise systems."</div><div class="a">Enterprise scale is why regional seams matter. The question is whether an APAC LP onboards and reports the same way as a US LP, or on a separate regional process that has to be reconciled.</div></div>
+   <div class="obj"><div class="q">"This is just one regional hire."</div><div class="a">A new office plus an Investor Solutions co-head is a capital-formation buildout, not a single hire. That is precisely when the onboarding standard for the region gets set.</div></div>
+   <div class="obj"><div class="q">"Real estate investor reporting is bespoke."</div><div class="a">Bespoke across seven open funds and three regions is the argument for one configurable workflow, not several manual ones.</div></div>
+  </div>
+
+  <div class="blk"><h4>&#128270; Current Stack + Switch Signal</h4>
+   <p class="src">Current stack unknown. ZoomInfo tech tags unavailable this session; no competitor named. Confirm before referencing any incumbent platform.</p>
+  </div>
+ </div>
+</div>
+
+<h2 class="sec" id="watch">&#128276; 5. Re-Engagement Watchlist</h2>
+<div class="banner b-info">Tier 1 Hot accounts with no fresh trigger today but a contact gap of 180+ days. For AE awareness only. No outreach drafted; angles are starting points, not researched signals. Source: master account list (New Priority Tier = "1- Hot", Days Since Contact &ge; 180); 34 accounts met the filter, top non-previously-featured dormant names shown.</div>
+<table class="wl">
+<tr><th>Firm</th><th>Days Since Contact</th><th>Type</th><th>Suggested Re-Engagement Angle</th></tr>
+<tr><td><b>NB Alternatives</b><br><span class="src">NY</span></td><td class="days">311</td><td>PE Secondaries / FoF</td><td>Tie a re-intro to the firmwide Neuberger secondaries cadence featured today; confirm relationship owner before any pitch.</td></tr>
+<tr><td><b>Versant Venture Management, LLC</b><br><span class="src">CA</span></td><td class="days">1,500</td><td>Venture Capital</td><td>Multi-fund investor reporting and LP communications cadence as a re-opener; verify current platform first.</td></tr>
+<tr><td><b>Hennessy Advisors, Inc.</b><br><span class="src">CA</span></td><td class="days">1,121</td><td>Asset Manager</td><td>Investor-communication cadence and fund reporting; long gap, treat as cold re-intro.</td></tr>
+<tr><td><b>Angel, Gordon &amp; Co.</b><br><span class="src">TX</span></td><td class="days">1,098</td><td>Alt Credit / Distressed</td><td>Confirm current entity and platform before engaging; reporting cadence as the opener.</td></tr>
+<tr><td><b>Manning &amp; Napier Inc</b><br><span class="src">NY</span></td><td class="days">1,004</td><td>Asset / Wealth Manager</td><td>Client and investor reporting workflow; verify ownership and current stack before reaching out.</td></tr>
+<tr><td><b>Palisade Capital Management LLC</b><br><span class="src">NJ</span></td><td class="days">724</td><td>Asset Manager</td><td>Investor reporting and document workflow as a re-opener; treat as cold given the gap.</td></tr>
+</table>
+
+<h2 class="sec" id="archive">&#128193; Past Editions</h2>
+<div class="sec-note">Previous daily briefings — most recent first.</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:30px;">
+  <a href="archive/2026-06-23.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 23, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">ECP VI · Water Street · Court Square</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Kayne Anderson · Shamrock · Cendana</div>
+  </a>
+  <a href="archive/2026-06-18.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 18, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">WindRose · Emerald Lake · Verition</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Court Square Capital</div>
+  </a>
+  <a href="archive/2026-06-17.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 17, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Clearlake · Crescent · Future Standard</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Knighthead · Perigon Wealth</div>
+  </a>
+  <a href="archive/2026-06-16.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 16, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Clearlake · Truelink · Percheron</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Redding Ridge · Versant Ventures</div>
+  </a>
+  <a href="archive/2026-06-15.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 15, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Monday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-06-11.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 11, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Thursday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-06-10.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 10, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">MidOcean Partners Edition</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-06-09.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 9, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Monday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-06-08.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 8, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Sunday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-06-04.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 4, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Thursday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-06-03.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 3, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Wednesday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-06-01.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">June 1, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Monday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-29.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 29, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Friday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-28.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 28, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Thursday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-27.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 27, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Wednesday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-22.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 22, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Friday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-21.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 21, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Thursday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-20.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 20, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Wednesday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-19.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 19, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Tuesday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-18.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 18, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Monday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-15.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 15, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Friday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-13.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 13, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Wednesday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+  <a href="archive/2026-05-12.html" style="display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+    <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;">May 12, 2026</div>
+    <div style="font-size:14px;font-weight:800;margin-top:4px;color:#fff;">Tuesday Briefing</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:3px;">Alternative Investments Coverage</div>
+  </a>
+</div>
+
+<div class="footer">
+<b>Intralinks Alternative Investments Briefing &middot; Edition #110 &middot; Wednesday, June 24, 2026 &middot; Created by Jack Conklin.</b><br>
+Theme: fund-launch plans and M&amp;A exits from PitchBook news. Selection logic: signal strength (dated fund launch, continuation close, or realization) over logo size, cross-referenced against the 2,199-account master list, with the no-repeat and no-pad rules applied. Firms featured today: Neuberger Berman, Littlejohn &amp; Co., Sheridan Capital Partners, Man Group, Harrison Street Real Estate Capital. None featured in prior editions.
+<div class="disc">
+Data sourcing: Market data from CNBC, TheStreet, and Trading Economics (June 24, 2026 close); individual PE-manager closing prints withheld due to source conflict, direction and catalyst published from CNBC and TradingKey. Firm facts from PitchBook (search, profile, deals, team members; fully operational this session) cross-checked against dated press releases (NB Private Equity Partners / GlobeNewswire June 24, Abry Partners / William Blair June 15, man.com June 8, Harrison Street / DealStreetAsia June 11, Fortune Term Sheet June 4). ZoomInfo unavailable this session ("No approval received"): all contacts flagged CONTACT UNVERIFIED, named records are PitchBook primary or team-member entries, AE must confirm email and seat natively before sending. No em dashes in outreach; no banned phrases; every draft closes with the standard cadence line. All claims traceable to a tool called today.
+</div>
+</div>
+</div>
+<script>
+function tg(id,btn){var m=document.getElementById(id);var o=m.classList.toggle('open');
+btn.textContent=(o?'▼ Hide draft email':'✉ View draft outreach email');}
+</script>
+</body></html>
